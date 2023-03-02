@@ -23,16 +23,16 @@ class GNN1(pl.LightningModule):
         self.batch_size=batch_size
         self.lr=lr
         self.neigh_network_atom1 = GCNConv(12,1024)
-        self.GCN_network_atom1=GraphConv(12,1024,"mean")
+        self.GCN_network_atom_same1=GraphConv(12,1024,"mean")
         self.GCN_network_residue1=GraphConv(1024,1024,"mean")
         self.neigh_network_atom2 = GCNConv(1024,512)
-        self.GCN_network_atom2=GraphConv(1024,512,"mean")
+        self.GCN_network_atom_same2=GraphConv(1024,512,"mean")
         self.GCN_network_residue2=GraphConv(1024,512,"mean")
         self.neigh_network_atom3 = GCNConv(512,256)
-        self.GCN_network_atom3=GraphConv(512,256,"mean")
+        self.GCN_network_atom_same3=GraphConv(512,256,"mean")
         self.GCN_network_residue3=GraphConv(512,256,"mean")
         self.neigh_network_atom4 = GCNConv(256,128)
-        self.GCN_network_atom4=GraphConv(256,128,"mean")
+        self.GCN_network_atom_same4=GraphConv(256,128,"mean")
         self.GCN_network_residue4=GraphConv(256,128,"mean")
         self.drop1_atom=torch.nn.Dropout(p=0.1, inplace=False)
         self.drop1_residue=torch.nn.Dropout(p=0.1, inplace=False)
@@ -61,19 +61,19 @@ class GNN1(pl.LightningModule):
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.lr)
         return optimizer
-    def helper(self,atom,same,diff,res,res_neigh,GCN_network_atom,GCN_network_neigh,GCN_network_residue,relu,batchnorm_atom,batchnorm_res,drop_atom,drop_res):
-        atom_feat=GCN_network_atom(atom,same)
-        neigh_feat=GCN_network_neigh(atom,diff)
+    def helper(self,atom,same,diff,res,res_neigh,GCN_network_atom_same,GCN_network_neigh_diff,GCN_network_residue,relu,batchnorm_atom,batchnorm_res,drop_atom,drop_res):
+        atom_feat=GCN_network_atom_same(atom,same)
+        neigh_feat=GCN_network_neigh_diff(atom,diff)
         final_atom=drop_atom(batchnorm_atom(relu(atom_feat+neigh_feat)))
         final_res=drop_res(batchnorm_res(relu(GCN_network_residue(res,res_neigh))))
         return final_atom,final_res 
     def training_step(self, train_batch, batch_idx):
         
         res,same_res_atom,diff_res_atom,atom,res_neigh,gdtts,gdtha,tmscore,gcad,lcad,req_eps,zeros,res_no = train_batch[0]#[0],train_batch[0][1],train_batch[0][2],train_batch[0][3],train_batch[0][4],train_batch[0][5],train_batch[0][6],train_batch[0][7],train_batch[0][8],train_batch[0][9],train_batch[0][10],train_batch[0][11]
-        atom_feat,res_feat=self.helper(atom,same_res_atom,diff_res_atom,res,res_neigh,self.GCN_network_atom1,self.neigh_network_atom1,self.GCN_network_residue1,self.relu,self.batchnorm_atom1,self.batchnorm_residue1,self.drop1_atom,self.drop1_residue)
-        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom2,self.neigh_network_atom2,self.GCN_network_residue2,self.relu,self.batchnorm_atom2,self.batchnorm_residue2,self.drop2_atom,self.drop2_residue)
-        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom3,self.neigh_network_atom3,self.GCN_network_residue3,self.relu,self.batchnorm_atom3,self.batchnorm_residue3,self.drop3_atom,self.drop3_residue)
-        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom4,self.neigh_network_atom4,self.GCN_network_residue4,self.relu,self.batchnorm_atom4,self.batchnorm_residue4,self.drop4_atom,self.drop4_residue)
+        atom_feat,res_feat=self.helper(atom,same_res_atom,diff_res_atom,res,res_neigh,self.GCN_network_atom_same1,self.neigh_network_atom1,self.GCN_network_residue1,self.relu,self.batchnorm_atom1,self.batchnorm_residue1,self.drop1_atom,self.drop1_residue)
+        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same2,self.neigh_network_atom2,self.GCN_network_residue2,self.relu,self.batchnorm_atom2,self.batchnorm_residue2,self.drop2_atom,self.drop2_residue)
+        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same3,self.neigh_network_atom3,self.GCN_network_residue3,self.relu,self.batchnorm_atom3,self.batchnorm_residue3,self.drop3_atom,self.drop3_residue)
+        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same4,self.neigh_network_atom4,self.GCN_network_residue4,self.relu,self.batchnorm_atom4,self.batchnorm_residue4,self.drop4_atom,self.drop4_residue)
         #local_scores=self.max_pool1(atom_feat.permute(1,0))
         #local_scores=local_scores.permute(1,0)
         #res_feat[:min(len(res_feat),len(local_scores))]=res_feat[:min(len(res_feat),len(local_scores))]+local_scores[:min(len(res_feat),len(local_scores))]
@@ -99,10 +99,10 @@ class GNN1(pl.LightningModule):
 
     def validation_step(self, val_batch, batch_idx):
         res,same_res_atom,diff_res_atom,atom,res_neigh,gdtts,res_no = val_batch[0]#[0],train_batch[0][1],train_batch[0][2],train_batch[0][3],train_batch[0][4],train_batch[0][5],train_batch[0][6],train_batch[0][7],train_batch[0][8],train_batch[0][9],train_batch[0][10],train_batch[0][11]
-        atom_feat,res_feat=self.helper(atom,same_res_atom,diff_res_atom,res,res_neigh,self.GCN_network_atom1,self.neigh_network_atom1,self.GCN_network_residue1,self.relu,self.batchnorm_atom1,self.batchnorm_residue1,self.drop1_atom,self.drop1_residue)
-        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom2,self.neigh_network_atom2,self.GCN_network_residue2,self.relu,self.batchnorm_atom2,self.batchnorm_residue2,self.drop2_atom,self.drop2_residue)
-        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom3,self.neigh_network_atom3,self.GCN_network_residue3,self.relu,self.batchnorm_atom3,self.batchnorm_residue3,self.drop3_atom,self.drop3_residue)
-        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom4,self.neigh_network_atom4,self.GCN_network_residue4,self.relu,self.batchnorm_atom4,self.batchnorm_residue4,self.drop4_atom,self.drop4_residue)
+        atom_feat,res_feat=self.helper(atom,same_res_atom,diff_res_atom,res,res_neigh,self.GCN_network_atom_same1,self.neigh_network_atom1,self.GCN_network_residue1,self.relu,self.batchnorm_atom1,self.batchnorm_residue1,self.drop1_atom,self.drop1_residue)
+        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same2,self.neigh_network_atom2,self.GCN_network_residue2,self.relu,self.batchnorm_atom2,self.batchnorm_residue2,self.drop2_atom,self.drop2_residue)
+        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same3,self.neigh_network_atom3,self.GCN_network_residue3,self.relu,self.batchnorm_atom3,self.batchnorm_residue3,self.drop3_atom,self.drop3_residue)
+        atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same4,self.neigh_network_atom4,self.GCN_network_residue4,self.relu,self.batchnorm_atom4,self.batchnorm_residue4,self.drop4_atom,self.drop4_residue)
         #local_scores=self.max_pool1(atom_feat.permute(1,0))
         #local_scores=local_scores.permute(1,0)
         #res_feat[:min(len(res_feat),len(local_scores))]=res_feat[:min(len(res_feat),len(local_scores))]+local_scores[:min(len(res_feat),len(local_scores))]
