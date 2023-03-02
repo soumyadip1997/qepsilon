@@ -12,11 +12,9 @@ importdatageo.py - It contains the  training,validation and testing dataloader
 # Training 
       python Train.py 
 # Testing 
+      python Test.py 
 
-python Test.py 
-
-# Plotting the scores and calculating correlation
-
-python plot_score.py 
+# Plotting and calculating Result
+      python plot_score.py 
 
 
