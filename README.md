@@ -5,7 +5,6 @@ Train_Val_Test.zip - It contains all the Training, Validation and Test decoy nam
 
 Feat_script - It contains all the scripts for extracting atom and residue features along with their neighbours.
 
-importdatageo.py - It contains the  training,validation and testing dataloader
 
 
 
