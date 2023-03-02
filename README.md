@@ -5,6 +5,15 @@ Train_Val_Test.zip - It contains all the Training, Validation and Test decoy nam
 
 Feat_script - It contains all the scripts for extracting atom and residue features along with their neighbours.
 
+# Requirements
+Python 3.9.16
+Numpy
+Pandas
+Matplotlib
+Pytorch 1.13.1
+Cuda 11.6
+Pytorch Lightning
+Pytorch Geometric
 
 
 
