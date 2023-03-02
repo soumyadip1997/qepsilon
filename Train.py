@@ -210,6 +210,6 @@ if  __name__ == "__main__":
         model.loss_type=1
         model.eval()
     # training
-    trainer = pl.Trainer(callbacks=[ModelCheckpoint(dirpath="my/path/", save_top_k=1, monitor="val_loss")],min_epochs=3,accelerator="gpu",devices=find_usable_cuda_devices(args.devices), max_epochs=args.epochs,num_nodes=args.nodes,auto_select_gpus=True,accumulate_grad_batches=70)#,limit_train_batches=70)  #,resume_from_checkpoint=path1)
+    trainer = pl.Trainer(callbacks=[ModelCheckpoint(dirpath=args.save_model, save_top_k=1, monitor="val_loss")],min_epochs=3,accelerator="gpu",devices=find_usable_cuda_devices(args.devices), max_epochs=args.epochs,num_nodes=args.nodes,auto_select_gpus=True,accumulate_grad_batches=70)#,limit_train_batches=70)  #,resume_from_checkpoint=path1)
     trainer.fit(model, train_loader,val_loader)
 
