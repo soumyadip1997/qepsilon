@@ -16,9 +16,9 @@ import glob
 from torch.utils.data import DataLoader
 import scipy.stats as ss1
 class GNN1(pl.LightningModule):
-    def __init__(self,batch_size=1):
+    def __init__(self,result_file="Result.csv"):
         super().__init__()
-        self.File1=open("Result_CASP14_new.csv","w+")
+        self.File1=open(result_file,"w+")
         self.write1=csv.writer(self.File1)
         #self.source_atom_one_hot_1 = nn.Linear(12,1024)
         self.batch_size=1
@@ -148,6 +148,8 @@ if  __name__ == "__main__":
                         help='path to transformer feature')
     parser.add_argument('--res-no',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/Atomfreq/atomfreq_" ,
                         help='path to residue number')
+    parser.add_argument('--result-file',type=str, default="Result.csv" ,
+                        help='Name of the file to store result')
     args = parser.parse_args()
     torch.set_float32_matmul_precision('high')
     Val_label_file=args.val_set
@@ -170,6 +172,7 @@ if  __name__ == "__main__":
     print(path1[0])
     model = GNN1().load_from_checkpoint(path1[0])
     model.eval()
+    model.result_file=args.result_file
     # training
     trainer = pl.Trainer(min_epochs=3,accelerator="gpu", devices=args.devices, max_epochs=args.epochs,num_nodes=args.nodes,enable_checkpointing=False)#,limit_train_batches=10)  #,resume_from_checkpoint=path1)
     trainer.test(model,test_loader)
