@@ -1,0 +1,67 @@
+'''
+One hot encoded residue infomration using SKlearn Library
+
+Output is N*M where N is the total number of atoms and M is the encoded features of the residues.
+Any unknown  residue is mapped to 1
+'''
+import pandas as pd
+import os
+import warnings
+import numpy as np
+from sklearn.preprocessing import OneHotEncoder
+import glob
+from Bio.PDB import *
+
+
+if __name__ == "__main__":
+    CASP_DIR=["CASP14"]
+    temp_loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/"
+    output_path="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/"
+
+    result_name=[]
+    for p1 in CASP_DIR:
+        loc=glob.glob(temp_loc+p1+"/Labels/*")
+        for i in loc:
+            target_name=(i.split("/")[-1])
+            #print(i)
+            try:
+                A12=pd.read_csv(i,delimiter=r"\s+")
+                
+                decoy_list=np.array(A12["Model"])
+                GDTTS=np.array(A12["GDT_TS"])
+                for po in range(len(GDTTS)):
+                        gdt_name=output_path+"gdtts_"+target_name.split(".")[0]+"_"+decoy_list[po]
+                        np.save(gdt_name,float(GDTTS[po]/100))
+                        
+                        print(gdt_name,GDTTS[po]/100)
+            except:
+                print("No")
+                    #result_name.append(gdt_name)
+                    #dict1={gdt_name:GDTTS[po].tobytes()}
+                    #writeCache(env,dict1) 
+    '''f = open(i,'r')
+                    for lines in f.readlines():
+                        if lines.split()[6]!="GDT_TS":
+                        decoy=str((lines.split()[0]).split(".")[0])
+                            
+                        val_dir=val+tar+"/"+decoy
+                        #print(val_dir)
+                        if os.path.exists(val_dir):
+
+
+
+                            score_temp=np.array(float(lines.split()[6])/100).reshape(1,1)
+                            req=str(tar+"_"+decoy)
+                            print(req)
+                            all_files="Names"+str(k11)
+                            gdt="GDTTS_"+req
+                            #print(gdt,score_temp)      
+                            dict1={gdt:score_temp.tobytes(),all_files:req.encode()}
+                            writeCache(env,dict1)
+                
+                            k11+=1
+                            #print(req,score_temp)'''
+                        
+                
+        
+
