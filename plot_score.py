@@ -9,6 +9,8 @@ parser.add_argument('--targets',type=str, default="valid_targets_CASP14.csv" ,
                         help='Filename containing all the set of targets')
 parser.add_argument('--result-file',type=str, default="result.csv" ,
                         help='Path to the result file')
+parser.add_argument('--plot-name',type=str, default="CASP13_Final.pdf" ,
+                        help='Name of the plot in pdf format')
 args=parser.parse_args()
 File=args.result_file
 df1=pd.read_csv(args.targets,sep=".\t",header=None,engine="python")
@@ -55,7 +57,7 @@ print(f'Per target spearman {np.mean(l22)}')
 plt.plot(rs,ps,".",alpha=0.02)
 plt.xlabel("Actual Scores")
 plt.ylabel("Predicted Scores")
-plt.savefig("CASP13_Final.pdf",format="pdf")
+plt.savefig(args.plot_name,format="pdf")
 
 
 
