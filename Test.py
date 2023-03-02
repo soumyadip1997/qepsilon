@@ -118,20 +118,12 @@ class GNN1(pl.LightningModule):
 if  __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='PyTorch Lightening QA')
-    parser.add_argument('--batch-size', type=int, default=1, metavar='N',
-                        help='input batch size for training (default: 1)')
-    parser.add_argument('--test-batch-size', type=int, default=70, metavar='N',
-                        help='input batch size for testing (default: 70)')
-    parser.add_argument('--epochs', type=int, default=4, metavar='N',
-                        help='number of epochs to train (default: 14)')
-    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
-                        help='learning rate (default: 0.001)')
     parser.add_argument('--workers',type=int , default=0,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=42, metavar='S',
                         help='random seed (default: 42)')
     parser.add_argument('--model-path', default="lightning_logs/version_3182/checkpoints/epoch=9*.ckpt",
-                        help='For Saving the current Model')
+                        help='For loading the  Model')
     parser.add_argument('--devices',type=int, default=1 ,
                         help='Number of gpu devices')
     parser.add_argument('--nodes',type=int, default=1 ,
@@ -165,7 +157,7 @@ if  __name__ == "__main__":
     same_res_atom_neigh=args.same_res_atom_neigh
     diff_res_atom_neigh=args.diff_res_atom_neigh
     workers=args.workers
-    batch_size=args.batch_size
+    batch_size=1
     res_neigh=args.res_neigh
     path_res_trans=args.path_res_trans
     atom_one_hot=args.atom_one_hot
@@ -180,6 +172,5 @@ if  __name__ == "__main__":
     model.eval()
     # training
     trainer = pl.Trainer(min_epochs=3,accelerator="gpu", devices=args.devices, max_epochs=args.epochs,num_nodes=args.nodes,enable_checkpointing=False)#,limit_train_batches=10)  #,resume_from_checkpoint=path1)
-    #trainer.fit(model, train_loader)
     trainer.test(model,test_loader)
 
