@@ -53,8 +53,6 @@ class GNN1(pl.LightningModule):
         self.batchnorm_residue3=torch.nn.BatchNorm1d(256)
         self.batchnorm_atom4=torch.nn.BatchNorm1d(128)
         self.batchnorm_residue4=torch.nn.BatchNorm1d(128)
-        #print(self.loss_type)
- 
         self.sigmoid1=nn.Sigmoid()
         self.dense=nn.Linear(256,1)
         #self.max_pool1=nn.MaxPool1d(10, stride=10)
@@ -74,9 +72,6 @@ class GNN1(pl.LightningModule):
         atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same2,self.neigh_network_atom2,self.GCN_network_residue2,self.relu,self.batchnorm_atom2,self.batchnorm_residue2,self.drop2_atom,self.drop2_residue)
         atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same3,self.neigh_network_atom3,self.GCN_network_residue3,self.relu,self.batchnorm_atom3,self.batchnorm_residue3,self.drop3_atom,self.drop3_residue)
         atom_feat,res_feat=self.helper(atom_feat,same_res_atom,diff_res_atom,res_feat,res_neigh,self.GCN_network_atom_same4,self.neigh_network_atom4,self.GCN_network_residue4,self.relu,self.batchnorm_atom4,self.batchnorm_residue4,self.drop4_atom,self.drop4_residue)
-        #local_scores=self.max_pool1(atom_feat.permute(1,0))
-        #local_scores=local_scores.permute(1,0)
-        #res_feat[:min(len(res_feat),len(local_scores))]=res_feat[:min(len(res_feat),len(local_scores))]+local_scores[:min(len(res_feat),len(local_scores))]
         start=0
         mid=0
         local_scores=res_feat.clone()
@@ -87,7 +82,6 @@ class GNN1(pl.LightningModule):
         res_feat=torch.concat((res_feat,local_scores),axis=1)    
         final_score=self.sigmoid1(self.dense(res_feat))
         final_score=torch.mean(final_score,axis=0)
-        #print((F.l1_loss(final_score.flatten(),gdtts.flatten())-req_eps).item())
         if self.loss_type==1:
             loss =F.l1_loss(final_score.flatten(),gdtts.flatten())-req_eps
             #print(loss)
@@ -135,6 +129,8 @@ if  __name__ == "__main__":
     parser.add_argument('--seed', type=int, default=42, metavar='S',
                         help='random seed (default: 42)')
     parser.add_argument('--save-model', default="/s/lovelace/c/nobackup/asa/soumya16/QA_l1/",
+                        help='For Saving the current Model')
+    parser.add_argument('--L1-model', default="/s/lovelace/c/nobackup/asa/soumya16/QA_l1/",
                         help='For Saving the current Model')
     parser.add_argument('--devices',type=int, default=1 ,
                         help='Number of gpu devices')
@@ -195,12 +191,12 @@ if  __name__ == "__main__":
     train_loader = DataLoader(TD, batch_size=1,shuffle=False,num_workers=int(temp.workers),sampler=ImbalancedDatasetSampler(TD,TD.labels),collate_fn=collate_fn_padd_train)
     val_loader = DataLoader(VD, batch_size=1,shuffle=False,num_workers=int(temp.workers),collate_fn=collate_fn_padd_val)
     # model
-    #path1=glob.glob("lightning_logs/version_3130/checkpoints/epoch=49*.ckpt")[0]
     if args.loss_type==0:
         model = GNN1(0,args.lr,batch_size)#.load_from_checkpoint(path1)
         model.eval()
     else:
-        
+        path1=glob.glob(args.L1_model)[0]
+
         model = GNN1(1,args.lr,batch_size).load_from_checkpoint(path1)
         model.loss_type=1
         model.eval()
