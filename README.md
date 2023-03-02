@@ -1,4 +1,4 @@
-# Protein-quality-assessment-with-graph-convolution-guided-by-a-loss-function-designed-for-high-qualit
+# QA-with-graph-convolution-guided-by-a-loss-function-designed-for-high-quality-decoys
 
 Train.py - Trains the model
 
