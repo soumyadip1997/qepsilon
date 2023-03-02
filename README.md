@@ -1,4 +1,6 @@
 # QA-with-graph-convolution-guided-by-a-loss-function-designed-for-high-quality-decoys
+Downloading the model -  https://colostate-my.sharepoint.com/:u:/r/personal/soumya16_colostate_edu/Documents/best_model.ckpt?csf=1&web=1&e=XqjmLY
+
 
 Train.py - Trains the model
 
