@@ -1,12 +1,15 @@
 import pandas as pd
+import argparse
+
 import numpy as np
 import scipy.stats
 import matplotlib.pyplot as plt
+parser = argparse.ArgumentParser(description='PyTorch Lightening QA')
 parser.add_argument('--targets',type=str, default="valid_targets_CASP14.csv" ,
                         help='Filename containing all the set of targets')
 parser.add_argument('--result-file',type=str, default="result.csv" ,
                         help='Path to the result file')
-args=parser.parse_arguments()
+args=parser.parse_args()
 File=args.result_file
 df1=pd.read_csv(args.targets,sep=".\t",header=None,engine="python")
 targets=np.array(df1[1])
