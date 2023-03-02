@@ -2,8 +2,13 @@ import pandas as pd
 import numpy as np
 import scipy.stats
 import matplotlib.pyplot as plt
-File="Result_CASP13_new.csv"
-df1=pd.read_csv("valid_targets_CASP13.csv",sep=".\t",header=None,engine="python")
+parser.add_argument('--targets',type=str, default="valid_targets_CASP14.csv" ,
+                        help='Filename containing all the set of targets')
+parser.add_argument('--result-file',type=str, default="result.csv" ,
+                        help='Path to the result file')
+args=parser.parse_arguments()
+File=args.result_file
+df1=pd.read_csv(args.targets,sep=".\t",header=None,engine="python")
 targets=np.array(df1[1])
 df=np.array(pd.read_csv(File,header=None))
 names=np.array(df[:,0])
