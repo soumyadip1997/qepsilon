@@ -42,11 +42,7 @@ class Train_Dataset(Dataset):
         self.atom_one_hot=opt.atom_one_hot
         self.res_neigh=opt.res_neigh
         self.gdtts=opt.gdtts
-        self.gdtha=opt.gdtha
-        self.res_no=opt.res_no
-        self.tmscore=opt.tmscore
-        self.gcad=opt.gcad
-        self.lcad=opt.lcad
+        
         self.num_classes=10
         self.count=[0]*10
         self.eps=[0.45,0.4,0.35,0.3,0.25,0.2,0.15,0.1,0.01,0.01,0.01]
@@ -91,10 +87,7 @@ class Val_Dataset(Dataset):
         self.atom_one_hot=opt.atom_one_hot
         self.res_neigh=opt.res_neigh
         self.gdtts=opt.gdtts
-        self.gdtha=opt.gdtha
-        self.tmscore=opt.tmscore
-        self.gcad=opt.gcad
-        self.lcad=opt.lcad
+        
         self.res_no=opt.res_no
     def __len__(self):
         return len(self.val_dataset)
@@ -169,28 +162,3 @@ class data1:
         self.workers=workers
         self.gdtts=gdtts
         self.res_no=res_no
-if  __name__ == "__main__":
-    label_file="Final_Decoy_List_GEO.npy"
-    gdtts="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/gdtts_"
-    gdtha="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_HA/gdtha_"
-    gcad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/globalcad_"
-    lcad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/localcad_"
-    tmscore="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TMscore/tmscore_"
-    same_res_atom_neigh="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Same_Res_Index_"
-    diff_res_atom_neigh="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Diff_Res_Index_"
-    workers=10
-    batch_size=1
-    res_neigh="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Residue_Neigh_"
-    path_res_trans="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TRANS/Trans_"
-    atom_one_hot="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/ATOM/atom_one_hot_"
-    train_data=["9","10","11","12"]
-    val_data=None
-    test_data=["13"]
-    
-    
-    temp=data1(path_res_trans,same_res_atom_neigh,diff_res_atom_neigh,atom_one_hot,res_neigh,gdtts,gdtha,tmscore,gcad,lcad,batch_size,workers,train_data,val_data,test_data,label_file)
-    TD=Train_Dataset(temp)
-    train_loader = torch.utils.data.DataLoader(TD, batch_size=temp.batchSize,shuffle=False,num_workers=temp.workers,sampler=ImbalancedDatasetSampler(TD,TD.labels),collate_fn=collate_fn_padd_train)
-    for i,j in enumerate(train_loader):
-        print(i,j[5])
- 
