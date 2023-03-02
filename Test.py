@@ -57,13 +57,12 @@ class GNN1(pl.LightningModule):
  
         self.sigmoid1=nn.Sigmoid()
         self.dense=nn.Linear(256,1)
-        #self.max_pool1=nn.MaxPool1d(10, stride=10)
         self.list1=[[0,0]]
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=0.001)
         return optimizer
     def helper(self,atom,same,diff,res,res_neigh,GCN_network_atom_same,GCN_network_neigh,GCN_network_residue,relu,batchnorm_atom,batchnorm_res,drop_atom,drop_res):
-        atom_feat=GCN_network_atom_same(atom,same)
+        atom_feat=GCN_network_atom_same(atom,sam70e)
         neigh_feat=GCN_network_neigh(atom,diff)
         final_atom=drop_atom(batchnorm_atom(relu(atom_feat+neigh_feat)))
         final_res=drop_res(batchnorm_res(relu(GCN_network_residue(res,res_neigh))))
@@ -108,7 +107,6 @@ class GNN1(pl.LightningModule):
         for i in range(len(final_score)):
             fields=[index,gdtts[i].item(),final_score[i].item()]
             self.write1.writerow(fields)
-            #print(gdtts[i].item(),final_score[i].item())
             self.list1.append([gdtts[i].item(),final_score[i].item()])
         list2=np.array(self.list1).reshape(-1,2)
         corr=ss1.pearsonr(list2[:,0],list2[:,1])[0]
@@ -118,10 +116,10 @@ class GNN1(pl.LightningModule):
 
 # data
 if  __name__ == "__main__":
-    print("Doing")
+
     parser = argparse.ArgumentParser(description='PyTorch Lightening QA')
     parser.add_argument('--batch-size', type=int, default=1, metavar='N',
-                        help='input batch size for training (default: 70)')
+                        help='input batch size for training (default: 1)')
     parser.add_argument('--test-batch-size', type=int, default=70, metavar='N',
                         help='input batch size for testing (default: 70)')
     parser.add_argument('--epochs', type=int, default=4, metavar='N',
@@ -164,36 +162,22 @@ if  __name__ == "__main__":
     Train_label_file=args.train_set
     Test_label_file=args.test_set
     gdtts=args.gdtts
-    #gdtha="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_HA/gdtha_"
-    #gcad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/globalcad_"
-    #lcad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/localcad_"
-    #tmscore="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TMscore/tmscore_"
     same_res_atom_neigh=args.same_res_atom_neigh
     diff_res_atom_neigh=args.diff_res_atom_neigh
     workers=args.workers
     batch_size=args.batch_size
-    
     res_neigh=args.res_neigh
     path_res_trans=args.path_res_trans
     atom_one_hot=args.atom_one_hot
     res_no=args.res_no
-
-
     temp=data1(path_res_trans,same_res_atom_neigh,diff_res_atom_neigh,atom_one_hot,res_neigh,gdtts,batch_size,workers,Train_label_file,Val_label_file,Test_label_file,res_no)
     TD=Test_Dataset(temp)
-
-
-
-
-    
-
     test_loader = DataLoader(TD, batch_size=temp.batchSize,shuffle=False,num_workers=int(temp.workers),collate_fn=collate_fn_padd_test)
     # model
     path1=glob.glob(args.model_path)
     print(path1[0])
     model = GNN1().load_from_checkpoint(path1[0])
     model.eval()
-
     # training
     trainer = pl.Trainer(min_epochs=3,accelerator="gpu", devices=args.devices, max_epochs=args.epochs,num_nodes=args.nodes,enable_checkpointing=False)#,limit_train_batches=10)  #,resume_from_checkpoint=path1)
     #trainer.fit(model, train_loader)
