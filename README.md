@@ -7,12 +7,19 @@ Feat_script - It contains all the scripts for extracting atom and residue featur
 
 # Requirements
 Python 3.9.16
+
 Numpy
+
 Pandas
+
 Matplotlib
+
 Pytorch 1.13.1
+
 Cuda 11.6
+
 Pytorch Lightning
+
 Pytorch Geometric
 
 
