@@ -123,10 +123,9 @@ class GNN1(pl.LightningModule):
 # data
 if  __name__ == "__main__":
     parser = argparse.ArgumentParser(description='PyTorch Lightening QA')
-    parser.add_argument('--batch-size', type=int, default=1, metavar='N',
+    parser.add_argument('--batch-size', type=int, default=70, metavar='N',
                         help='input batch size for training (default: 70)')
-    parser.add_argument('--test-batch-size', type=int, default=70, metavar='N',
-                        help='input batch size for testing (default: 70)')
+ 
     parser.add_argument('--epochs', type=int, default=4, metavar='N',
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
@@ -149,8 +148,7 @@ if  __name__ == "__main__":
                         help='Val set')
     parser.add_argument('--test-set', type=int, default="Test_CASP13_new.npy", metavar='LR',
                         help='Test set')
-    parser.add_argument('--loss-type', type=int, default=0, metavar='LR',
-                        help='loss type (Default L1-type)')
+ 
 
     parser.add_argument('--gdtts',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/gdtts_" ,
                         help='path to gdtts')
@@ -172,10 +170,7 @@ if  __name__ == "__main__":
     label_file_val=args.val_set
     label_file_test=args.test_set
     gdtts=args.gdtts
-    #gdtha="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_HA/gdtha_"
-    #gcad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/globalcad_"
-    #lcad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/localcad_"
-    #tmscore="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TMscore/tmscore_"
+    
     same_res_atom_neigh=args.same_res_atom_neigh
     diff_res_atom_neigh=args.diff_res_atom_neigh
     workers=args.workers
@@ -197,8 +192,8 @@ if  __name__ == "__main__":
 
     
 
-    train_loader = DataLoader(TD, batch_size=temp.batchSize,shuffle=False,num_workers=int(temp.workers),sampler=ImbalancedDatasetSampler(TD,TD.labels),collate_fn=collate_fn_padd_train)
-    val_loader = DataLoader(VD, batch_size=temp.batchSize,shuffle=False,num_workers=int(temp.workers),collate_fn=collate_fn_padd_val)
+    train_loader = DataLoader(TD, batch_size=1,shuffle=False,num_workers=int(temp.workers),sampler=ImbalancedDatasetSampler(TD,TD.labels),collate_fn=collate_fn_padd_train)
+    val_loader = DataLoader(VD, batch_size=1,shuffle=False,num_workers=int(temp.workers),collate_fn=collate_fn_padd_val)
     # model
     #path1=glob.glob("lightning_logs/version_3130/checkpoints/epoch=49*.ckpt")[0]
     if args.loss_type==0:
@@ -210,6 +205,6 @@ if  __name__ == "__main__":
         model.loss_type=1
         model.eval()
     # training
-    trainer = pl.Trainer(callbacks=[ModelCheckpoint(dirpath=args.save_model, save_top_k=1, monitor="val_loss")],min_epochs=3,accelerator="gpu",devices=find_usable_cuda_devices(args.devices), max_epochs=args.epochs,num_nodes=args.nodes,auto_select_gpus=True,accumulate_grad_batches=70)#,limit_train_batches=70)  #,resume_from_checkpoint=path1)
+    trainer = pl.Trainer(callbacks=[ModelCheckpoint(dirpath=args.save_model, save_top_k=1, monitor="val_loss")],min_epochs=3,accelerator="gpu",devices=find_usable_cuda_devices(args.devices), max_epochs=args.epochs,num_nodes=args.nodes,auto_select_gpus=True,accumulate_grad_batches=batch_size)#,limit_train_batches=70)  #,resume_from_checkpoint=path1)
     trainer.fit(model, train_loader,val_loader)
 
