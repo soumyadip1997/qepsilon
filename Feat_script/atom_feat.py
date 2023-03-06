@@ -9,6 +9,7 @@ import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 import glob
 import os
+import argparse
 
 
 def atom1(structure):
