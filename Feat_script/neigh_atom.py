@@ -56,7 +56,7 @@ def neigh1(structure,i):
                     F.write(i+'\n')
                     return -1,-1,-1,1
  
-def help1(i):
+def help1(i,output_path):
                     print(i)
                 #try:
                     #print(i) 
@@ -95,25 +95,33 @@ def help1(i):
 
 
 import glob
-from multiprocessing import Pool
+#from multiprocessing import Pool
 
-F=open("FAILURE_NEIGH","w+")
 output_path="Features/GRAPHNEIGH/"
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Neigh_Info')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='O',
+                        help='location for the output features to be stored')
+    args = parser.parse_args()
+
+    
+    output_path=args.output_location+"/GRAPHNEIGH/"
+    F=open("FAILURE_NEIGH","w+")
+
     CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
     for p1 in CASP_DIR:
 
-        req_loc=glob.glob(p1+"/decoys/*/*")
+        req_loc=glob.glob(args.decoy_location+p1+"/decoys/*/*")
         
         flag=0
         
-        #for i in range(len(req_loc)):
-        # help1(req_loc[i])
-        #    help1(loc[i])
-        #loc1=loc[2]
-        #print(loc1)
+        for i in range(len(req_loc)):
+          help1(req_loc[i],output_path)
+        
        
-        with Pool(30) as p:
-            p.map(help1,[req_loc[i] for i in range(len(req_loc))])
+        #with Pool(30) as p:
+        #    p.map(help1,[req_loc[i] for i in range(len(req_loc))])
         #for i in range(len(loc)):
         #    help1(loc[i],env)
