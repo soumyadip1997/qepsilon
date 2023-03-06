@@ -1,4 +1,10 @@
 import numpy as np
+import argparse
+parser = argparse.ArgumentParser(description='train_val')
+parser.add_argument('--output-path',type=str, default="Q-epsilon/" ,
+                        help='Output path')
+args = parser.parse_args()
+
 A=np.load("Train_Val.npy")
 train_set=["9","10","11"]
 B=np.empty((1,4))
@@ -10,7 +16,7 @@ pos1=np.where(A[:,0]=="12")[0]
 len1=int(len(pos1)*0.80)
 casp12=A[pos1]
 B=np.concatenate((B,casp12[:len1]),axis=0)
-np.save("Train.npy",B)
+np.save(args.output_path+"Train.npy",B)
 val=casp12[len1:]
-np.save("Val.npy",val)
+np.save(args.output_path+"Val.npy",val)
 
