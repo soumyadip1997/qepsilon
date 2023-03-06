@@ -1,5 +1,7 @@
 # Q-epsilon
 
+Repository for Protein quality assessment with graph convolution guided by a loss function designed for high quality decoys
+
 # Requirements
 Python 3.9.16
 
