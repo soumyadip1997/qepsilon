@@ -216,7 +216,7 @@ After training for a total of 60 epochs or downloading the model run the followi
 
       python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy/Test_CASP14_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13.csv/result_14.csv
 
-This saves all the result to the file specified via --result-file argument which in this case is either result_13 or result_14.csv. 
+This saves all the results to the file specified by --result-file argument which in this case is either result_13.csv or result_14.csv. 
 
 
 ### Parameters
