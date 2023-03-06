@@ -14,12 +14,20 @@ from Bio.PDB import *
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='GDTTS')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='N',
+                        help='location for the output features to be stored')
+    args = parser.parse_args()
+    F=open("Failure_atom.txt","a")
+    
+    output_path=args.output_location+"GDT_TS/"
     CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
-    output_path="Features/GDT_TS/"
-
+    
     result_name=[]
     for p1 in CASP_DIR:
-        loc=glob.glob(p1+"/Labels/*")
+        loc=glob.glob(args.deoy_location+p1+"/Labels/*")
         for i in loc:
             target_name=(i.split("/")[-1])
             #print(i)
