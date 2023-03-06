@@ -63,7 +63,7 @@ First make a new folder by the name "Features" inside Q-epsilon
 
 
 
-Feature extraction can be done either from scratch or can be downloaded from the website provided.
+Feature extraction can be done either from **scratch** or can be **downloaded** from the website provided.
 
 
 ## Extracting from scratch
