@@ -139,7 +139,13 @@ where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfr
  
 # Creating Train,Validation and Test Set
 
-Again it can be done from **scratch** or it can be done from the **File** provided in the repository
+Again it can be done from 
+
+**Scratch** 
+
+or 
+
+It can be done from the **File**(Train_Val_Test.zip) provided in the repository
 
 ## To do it from scratch:
 
@@ -260,6 +266,8 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 --save-model - Location for saving a model
 
 # Testing 
+
+We use the best model saved by the $\epsilon$ modified L1-Loss for testing.
 
 To save training time download the best model from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
