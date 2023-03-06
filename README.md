@@ -142,7 +142,7 @@ Run the scripts inside Train_Val_Test directory.
       
 To create the Train and Validation set first run 
 
-      python create_possible_list.py 
+      python create_possible_list.py --same-res-atom-neigh Q-epsilon/Features/GRAPHNEIGH/Same_Res_Index_ --res-neigh Q-epsilon/Features/GRAPHNEIGH/Residue_Neigh_ --gdtts Q-epsilon/Features/GDT_TS/gdtts_ --atom-one-hot Q-epsilon/Features/ATOM/atom_one_hot_ --path-res-trans Q-epsilon/Features/TRANS/Trans_
 
 Then run 
 
