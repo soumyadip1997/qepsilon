@@ -80,7 +80,7 @@ gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
       
 ### Or
 
-To save time we have already provided the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
+To save time use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
 Unzip the Train_Val_Test.zip. 
 
@@ -99,25 +99,25 @@ valid_targets_CASP14.npy -  CASP14 targets
 
 # Training 
 
-We do a two step training process. 
+Training is done in two steps: 
 
-First we run the GCN with L1-Loss for 50 epochs and we save the best model as best_model_l1.ckpt
+First the GCN runs with L1-Loss for 50 epochs and the best model is saved as best_model_l1.ckpt
 
       python Train.py --batch-size 70 --epochs 50 --workers 12 --seed 42 --devices 1 --nodes 1 --loss-type 0 --train-set Train.npy --val-set Val.npy --test-set Test_CASP13_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --save-model best_model_l1.ckpt
       
-Then we run the same GCN with our $\epsilon$ modified L1-Loss for another 10 epochs using the best model obtained from the L1-Loss i.e. best_model_l1.ckpt and we save the current model as best_model.ckpt
+Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epochs using the best model obtained from the L1-Loss i.e. best_model_l1.ckpt and the current model is saved as best_model.ckpt
 
       python Train.py --batch-size 70 --epochs 10 --workers 12 --seed 42 --devices 1 --nodes 1 --loss-type 1 --train-set Train.npy --val-set Val.npy --test-set Test_CASP13_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --load-model best_model_l1.ckpt --save-model best_model.ckpt
       
 # Testing 
 
-To save time we have provided our best model  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
+To save time download the best model from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
 After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
       python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy/Test_CASP14_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13.csv/result_14.csv
 
-
+This saves all the result to the file specified via --result-file argument which in this case is either result_13 or result_14.csv. 
 
 
 # Plotting and calculating Result
@@ -125,5 +125,7 @@ After training for a total of 60 epochs or downloading the model run the followi
 For calculating the pearson and spearman corelation scores and plotting data run the following -
 
       python plot_score.py --result-file result_13.csv/result_14.csv --targets valid_targets_CASP14.csv/valid_targets_CASP13.csv --plot-name CASP13.pdf/CASP14.pdf
+      
+ 
 
 
