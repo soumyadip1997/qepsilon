@@ -25,6 +25,8 @@ Pytorch Geometric 2.2.0
 
 Biopython 1.81
 
+Sklearn 1.2.0
+
 # Dataset
 
 The 3D structures of the decoys can be downloaded from - https://zenodo.org/record/7697275#.ZAVRA-zMKrM
