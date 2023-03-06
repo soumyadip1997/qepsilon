@@ -41,11 +41,10 @@ def atom1(structure):
 if __name__ == "__main__":
     
     F=open("Failure_atom.txt","a")
-    CASP_DIR=['CASP14']
-    temp_loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/"
-    output_path="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/ATOM/atom_one_hot_"
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
+    output_path="Features/ATOM/atom_one_hot_"
     for p1 in CASP_DIR:
-        loc=glob.glob(temp_loc+p1+"/decoys/*/*")
+        loc=glob.glob(p1+"/decoys/*/*")
     
  
  
