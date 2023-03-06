@@ -22,12 +22,17 @@ Pytorch Lightning
 
 Pytorch Geometric
 
+# Dataset
 
+The 3D structures of the decoys can be downloaded from - https://zenodo.org/record/7697275#.ZAVRA-zMKrM
 
+# Manual extraction of decoy features
 
-# Prot Trans Features
+Run on all the decoys 
 
-https://colostate-my.sharepoint.com/:u:/g/personal/soumya16_colostate_edu/ESN_lob-izZKm86bIZ39HIQBNWybwmfvJHve-G1394B49Q?e=7oO7E3
+# Download preprocessed data-
+
+All the features can be downloaded from https://zenodo.org/record/7694318#.ZAVS2-zMKrM and https://colostate-my.sharepoint.com/:u:/g/personal/soumya16_colostate_edu/ESN_lob-izZKm86bIZ39HIQBNWybwmfvJHve-G1394B49Q?e=7oO7E3
 
 
 
