@@ -70,7 +70,7 @@ number of atoms inside each residue - https://zenodo.org/record/7694318/files/At
 
 gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
-# Dividing the data for training,validation and testing
+# Creating Train,Validation and Test Set
 
 ### To do it from scratch:
 
