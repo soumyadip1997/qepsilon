@@ -160,7 +160,7 @@ This will create the test sets for CASP13 and 14 respectively.
 --decoy-location - Location of the CASP Folders
 
 
-# Alternative: Downloading the preprocessed data and use the already prepared Train-Val-Test File
+# Alternative: Downloading the preprocessed data and using the already prepared Train-Val-Test File
 
 To save time all the above features can be downloaded from the links below-
 
