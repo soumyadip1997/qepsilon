@@ -87,11 +87,10 @@ if __name__ == "__main__":
     model = model.eval()
     #model=None
     #tokenizer=None
-    CASP_DIR=["CASP10"]
-    output_loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TRANS/"
-    data_loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/"
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
+    output_loc="Features/TRANS/"
     for p1 in CASP_DIR:
-        decoy_loc=glob.glob(data_loc+p1+"/decoys/*/*")
+        decoy_loc=glob.glob(p1+"/decoys/*/*")
         for i in decoy_loc:
              try:
                 flag=1
