@@ -111,9 +111,7 @@ Then we run the same GCN with our $\epsilon$ modified L1-Loss for another 10 epo
       
 # Testing 
 
-To save time we have provided our best model - 
-
-Downloading the model -  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
+To save time we have provided our best model  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
 After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
