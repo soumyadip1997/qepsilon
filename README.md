@@ -61,8 +61,21 @@ First make a new folder by the name "Features" inside Q-epsilon
 
            mkdir Features
 
+Then make sub directories under Features-
 
-## From scratch
+           mkdir Features/ATOM
+           
+           mkdir Features/NEIGH_RES
+           
+           mkdir Features/GRAPHNEIGH
+           
+           mkdir Features/TRANS
+           
+           mkdir Features/ATOMfreq
+           
+           mkdir Features/GDT_TS
+
+## Extracting from scratch
 
 To extract the features for all the decoys from scratch run the scripts in Feat_script directory-
 
@@ -70,27 +83,33 @@ To extract the features for all the decoys from scratch run the scripts in Feat_
 
 Extract one hot encodings for all the atoms of  decoys
 
-      python atom_feat.py 
+      python atom_feat.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
 Extract the gdtts of all  decoys
 
-      python gdtscores.py 
+      python gdtscores.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
 Extract all the same and different residue atom neighbours of all  decoys
 
-      python neigh_atom.py 
+      python neigh_atom.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
 Extract all the residue neighbours of all decoys
 
-      python neigh_res.py  
+      python neigh_res.py  --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
 Extract the  number of atoms present inside each residue of all decoys
 
-      python res_number.py  
+      python res_number.py  --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
 Extract transformer feature for each residue of all  decoys
  
-      python transformer_feat.py 
+      python transformer_feat.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
+      
+### Parameters
+
+--decoy-location   Location of the decoys parent directory
+           
+--output-location  Location of output
 
 # Or alternatively download the preprocessed data
 
@@ -100,7 +119,9 @@ transformer feature for residue - https://colostate-my.sharepoint.com/:u:/g/pers
 
 one hot encodings of atoms - https://zenodo.org/record/7694318/files/ATOM.zip?download=1
 
-atom and residue neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
+same and diferent residue atom neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
+
+residue neighbours - 
 
 number of atoms inside each residue - https://zenodo.org/record/7694318/files/Atomfreq.zip?download=1
 
@@ -111,7 +132,7 @@ Then unzip the files and store them inside Features Folder
 
            unzip <Filename.zip> -d Q-epsilon/Features/
            
-where <Filename.zip> are the different files that we downloaded          
+where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfreq.zip,GDT_TS.zip,GRAPHNEIGH.zip,RES_NEIGH.zip)         
  
 # Creating Train,Validation and Test Set
 
