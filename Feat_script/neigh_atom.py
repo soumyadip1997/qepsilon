@@ -1,8 +1,5 @@
 
-'''
-It calculates the neighbours of each atom i.e. 10 distinct neighbours
-Output is  in the form of a ditionary representing an  adjacency list where each source atom and neighbouring atom is represented bby its sequence index .
-'''
+
 import os
 import warnings
 from Bio.PDB import *
