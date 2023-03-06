@@ -2,7 +2,8 @@
 
 Repository for Protein quality assessment with graph convolution guided by a loss function designed for high quality decoys
 
-# Requirements
+# Dependencies
+
 Python 3.9.16
 
 Numpy 1.23.5
@@ -24,6 +25,15 @@ Biopython 1.81
 Sklearn 1.2.0
 
 torchsampler 0.14.1 
+
+# Initial Setup
+
+First install dependencies in a conda environment and clone the repository-
+
+           git clone https://github.com/soumyadip1997/Q-epsilon.git
+           
+           cd Q-epsilon
+
 # Dataset
 
 To do manual extraction of the features we need the 3D structures of the decoys. It can be downloaded from the following links-
