@@ -90,9 +90,9 @@ Train.npy - Train set
 
 Val.npy - Validation Set
 
-Test_CASP13_new.npy - Test Set with CASP13 dcoys
+Test_CASP13_new.npy - Test Set with CASP13 decoys
 
-Test_CASP14_new.npy - Test Set with CASP14 dcoys
+Test_CASP14_new.npy - Test Set with CASP14 decoys
 
 valid_targets_CASP13.npy -  CASP13 targets 
 
