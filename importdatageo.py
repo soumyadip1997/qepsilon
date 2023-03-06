@@ -42,6 +42,7 @@ class Train_Dataset(Dataset):
         self.atom_one_hot=opt.atom_one_hot
         self.res_neigh=opt.res_neigh
         self.gdtts=opt.gdtts
+        self.res_no=opt.res_no
         
         self.num_classes=10
         self.count=[0]*10
@@ -66,16 +67,12 @@ class Train_Dataset(Dataset):
             atom_one_hot=torch.tensor(np.load(self.atom_one_hot+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"),dtype=torch.float32, requires_grad=True)
             res_neigh=torch.tensor(np.load(self.res_neigh+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"),dtype=torch.long)
             gdtts=torch.tensor(np.load(self.gdtts+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"), requires_grad=True)
-            gdtha=torch.tensor(np.load(self.gdtha+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"), requires_grad=True)
-            tmscore=torch.tensor(np.load(self.tmscore+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"), requires_grad=True)
-            gcad=torch.tensor(np.load(self.gcad+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
-            lcad=np.load(self.lcad+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy")
-            lcad=torch.tensor(np.nan_to_num(lcad)) 
             num_res=len(res_feat)
             req_eps=torch.tensor(self.eps[round(gdtts.item()*10)],dtype=torch.float32, requires_grad=True)
             zeros=torch.tensor([0],dtype=torch.float32, requires_grad=True)
             res_no=torch.tensor(np.load(self.res_no+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"),dtype=torch.long)
-            return res_feat,same_res_atom,diff_res_atom,atom_one_hot,res_neigh,gdtts,gdtha,tmscore,gcad,lcad,req_eps ,zeros,res_no
+            res_len=torch.tensor(res_feat.shape[0],dtype=torch.float32)
+            return res_feat,same_res_atom,diff_res_atom,atom_one_hot,res_neigh,gdtts,req_eps,zeros,res_no,res_len
 class Val_Dataset(Dataset):
     def __init__(self, opt=None):
         self.val_dataset=opt.val_dataset
@@ -100,7 +97,9 @@ class Val_Dataset(Dataset):
             res_neigh=torch.tensor(np.load(self.res_neigh+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"),dtype=torch.long)
             gdtts=torch.tensor(np.load(self.gdtts+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
             res_no=torch.tensor(np.load(self.res_no+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
-            return res_feat,same_res_atom,diff_res_atom,atom_one_hot,res_neigh,gdtts,res_no#gdtha,tmscore,gcad,lcad,name
+            
+            res_len=torch.tensor(res_feat.shape[0],dtype=torch.float32)
+            return res_feat,same_res_atom,diff_res_atom,atom_one_hot,res_neigh,gdtts,res_no,res_len
 class Test_Dataset(Dataset):
     def __init__(self, opt=None):
         self.train_dataset = opt.train_dataset
@@ -113,10 +112,6 @@ class Test_Dataset(Dataset):
         self.atom_one_hot=opt.atom_one_hot
         self.res_neigh=opt.res_neigh
         self.gdtts=opt.gdtts
-        #self.gdtha=opt.gdtha
-        #self.tmscore=opt.tmscore
-        #self.gcad=opt.gcad
-        #self.lcad=opt.lcad
         self.res_no=opt.res_no
     def __len__(self):
         return len(self.test_dataset)
@@ -130,13 +125,10 @@ class Test_Dataset(Dataset):
             atom_one_hot=torch.tensor(np.load(self.atom_one_hot+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"),dtype=torch.float32)
             res_neigh=torch.tensor(np.load(self.res_neigh+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"),dtype=torch.long)
             gdtts=torch.tensor(np.load(self.gdtts+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
-            #gdtha=torch.tensor(np.load(self.gdtha+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
-            #tmscore=torch.tensor(np.load(self.tmscore+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
-            #gcad=torch.tensor(np.load(self.gcad+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy"))
-            #lcad=np.load(self.lcad+self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx]+".npy")
-            #lcad=torch.tensor(np.nan_to_num(lcad)) 
             name=self.target_name[sample_idx]+"_"+self.decoy_name[sample_idx] 
-            return res_feat,same_res_atom,diff_res_atom,atom_one_hot,res_neigh,gdtts,name,res_no#gdtha,tmscore,gcad,lcad,name
+            res_len=torch.tensor(res_feat.shape[0],dtype=torch.float32)
+
+            return res_feat,same_res_atom,diff_res_atom,atom_one_hot,res_neigh,gdtts,name,res_no,res_len
 def collate_fn_padd_train(batch):
     return batch
 def collate_fn_padd_val(batch):
