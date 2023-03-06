@@ -86,11 +86,25 @@ gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
 ### To do it from scratch:
 
-      Run the scripts inside Train_Val_Test directory.
+Run the scripts inside Train_Val_Test directory.
       
-      To create the Train and Validation set first run the create_possible_list.py and then run the create_train_val.py
+To create the Train and Validation set first run 
+
+      python create_possible_list.py 
+
+Then run 
+
+      create_train_val.py
       
-      To create the Test set first run the process_CASP13_14.py and then run create_possible_list_CASP13.py and create_possible_list_CASP14.py to create the test sets for CASP13 and 14 respectively.
+To create the Test set first run 
+
+      python process_CASP13_14.py 
+      
+Then run 
+      python create_possible_list_CASP13.py 
+      python create_possible_list_CASP14.py 
+ 
+This will create the test sets for CASP13 and 14 respectively.
       
 ### Or
 
