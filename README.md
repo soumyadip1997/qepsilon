@@ -84,7 +84,7 @@ gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
 To save time use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
-Unzip the Train_Val_Test.zip. 
+Unzip the Train_Val_Test.zip. It contains the following files
 
 Train.npy - Train set
 
