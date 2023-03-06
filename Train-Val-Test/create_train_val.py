@@ -10,7 +10,7 @@ pos1=np.where(A[:,0]=="12")[0]
 len1=int(len(pos1)*0.80)
 casp12=A[pos1]
 B=np.concatenate((B,casp12[:len1]),axis=0)
-np.save("Train.npy",B)
+np.save("Q-epsilon/Train.npy",B)
 val=casp12[len1:]
-np.save("Val.npy",val)
+np.save("Q-epsilon/Val.npy",val)
 
