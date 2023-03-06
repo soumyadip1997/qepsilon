@@ -2,12 +2,29 @@ import glob
 import pandas as pd
 import numpy as np
 import os
-neigh_atom="Features/GRAPHNEIGH/Same_Res_Index_"
-neigh_res="Features/GRAPHNEIGH/Residue_Neigh_"
-gdtts="Features/GDT_TS/gdtts_"
-trans="Features/TRANS/Trans_"
-one_hot_atom="Features/ATOM/atom_one_hot_"
-#gdt=glob.glob(gdtts+"*")
+import argparse
+parser = argparse.ArgumentParser(description='Test_13')
+parser.add_argument('--same-res-atom-neigh',type=str, default="Q-epsilon/Features/GRAPHNEIGH/Same_Res_Index_" ,
+                        help='path to same residue atom neighbours')
+parser.add_argument('--res-neigh',type=str, default="Q-epsilon/Features/GRAPHNEIGH/Residue_Neigh_" ,
+                        help='path to residue neighbour')
+parser.add_argument('--gdtts',type=str, default="Q-epsilon/Features/GDT_TS/gdtts_" ,
+                        help='path to gdtts')
+parser.add_argument('--atom-one-hot',type=str, default="Q-epsilon/Features/ATOM/atom_one_hot_" ,
+                        help='path to one hot atom encoding')
+parser.add_argument('--path-res-trans',type=str, default="Q-epsilon/Features/TRANS/Trans_" ,
+                        help='path to transformer feature')
+parser.add_argument('--output-path',type=str, default="Q-epsilon/" ,
+                        help='Output path')
+args = parser.parse_args()
+ 
+neigh_atom=args.same_res_atom_neigh
+neigh_res=args.res_neigh
+gdtts=args.gdtts
+trans=args.path_res_trans
+one_hot_atom=args.atom_one_hot
+
+
 df=np.load("NEWCASP13.npy")
 casp_ed=np.array(df[:,0])
 target_list=np.array(df[:,1])
@@ -31,6 +48,6 @@ for i in range(len(casp_ed)):
        except:
             print("No")
 res=np.array(res).reshape(-1,4)
-np.save("Test_CASP13_new.npy",res)
+np.save(args.output_path+"Test_CASP13_new.npy",res)
     
 
