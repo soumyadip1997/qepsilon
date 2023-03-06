@@ -9,6 +9,8 @@ from Bio.PDB import *
 import numpy as np
 from Bio.PDB.NeighborSearch import NeighborSearch
 import math
+import argparse
+
 def neigh1(structure,i):
   try:
     #atom_list is a numpy array  that   contains all the atoms of the pdb file in atom object
