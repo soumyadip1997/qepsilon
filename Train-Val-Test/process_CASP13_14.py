@@ -14,10 +14,6 @@ import argparse
 
 from Bio.PDB import *
 
-def writeCache(env, cache):
-        with env.begin(write=True) as txn:
-            for k, v in cache.items():
-                txn.put(k.encode(), v)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Feat')
