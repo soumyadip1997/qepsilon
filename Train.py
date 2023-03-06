@@ -122,7 +122,7 @@ if  __name__ == "__main__":
     parser.add_argument('--batch-size', type=int, default=70, metavar='N',
                         help='input batch size for training (default: 70)')
  
-    parser.add_argument('--epochs', type=int, default=50, metavar='N',
+    parser.add_argument('--epochs', type=int, default=50, metavar='E',
                         help='number of epochs to train (default: 50)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
@@ -138,13 +138,13 @@ if  __name__ == "__main__":
                         help='Number of gpu devices')
     parser.add_argument('--nodes',type=int, default=1 ,
                         help='Number of nodes')
-    parser.add_argument('--loss-type', type=int, default=0, metavar='LR',
+    parser.add_argument('--loss-type', type=int, default=0, metavar='LT',
                         help='loss type (Default L1-type)')
-    parser.add_argument('--train-set', type=str, default="Train.npy", metavar='LR',
+    parser.add_argument('--train-set', type=str, default="Train.npy", metavar='TR',
                         help='Train File')
-    parser.add_argument('--val-set', type=str, default="Val.npy", metavar='LR',
+    parser.add_argument('--val-set', type=str, default="Val.npy", metavar='VS',
                         help='Val set')
-    parser.add_argument('--test-set', type=str, default="Test_CASP13_new.npy", metavar='LR',
+    parser.add_argument('--test-set', type=str, default="Test_CASP13_new.npy", metavar='TS',
                         help='Test set')
  
 
