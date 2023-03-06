@@ -18,6 +18,8 @@ import lmdb
 import math
 import numpy as np
 from multiprocessing import Pool
+import argparse
+
 def neigh1(i11,output_path):
     parser = PDBParser()
     try:
