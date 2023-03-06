@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='GDTTS')
     parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
                         help='location to the downloaded decoy 3D structures of all CASP')
-    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='N',
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='O',
                         help='location for the output features to be stored')
     args = parser.parse_args()
     F=open("Failure_atom.txt","a")
