@@ -36,7 +36,7 @@ First install dependencies in a conda environment and clone the repository-
 
 # Dataset
 
-To do manual extraction of the features 3D structures of the decoys are required. It can be downloaded from the following links-
+To do manual extraction of the features, 3D structures of the decoys are required. It can be downloaded from the following links-
 
 CASP9 - https://zenodo.org/record/7697275/files/CASP9.zip?download=1
 
@@ -256,7 +256,7 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 
 # Testing 
 
-To save time download the best model from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
+To save training time download the best model from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
 After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
