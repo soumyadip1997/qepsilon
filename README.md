@@ -1,5 +1,6 @@
 # QA-with-graph-convolution-guided-by-a-loss-function-designed-for-high-quality-decoys
-Downloading the model -  https://colostate-my.sharepoint.com/:u:/r/personal/soumya16_colostate_edu/Documents/best_model.ckpt?csf=1&web=1&e=XqjmLY
+Downloading the model -  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
+
 
 Train_Val_Test.zip - It contains all the Training, Validation and Test decoy names along with their targets and CASP version
 
