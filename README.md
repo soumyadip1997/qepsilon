@@ -66,25 +66,12 @@ Then we unzip the folders using
 
            unzip <CASP_FILE> -d Q-epsilon/
 
-where <CASP_FILE> represents the downloaded CASP decoy files
-# Decoy features
+where <CASP_FILE> represents the downloaded CASP zip files
 
-First make a new folder by the name "Features" inside Q-epsilon
+
+Then we make a new folder by the name "Features" inside Q-epsilon
 
            mkdir Features
-
-
-
-Feature extraction can be done either from 
-
-**Scratch** 
-
-Or
-
-Features can be **downloaded** from the website provided.
-
-
-## Extracting from scratch
 
 Make sub directories under Features-
 
@@ -92,7 +79,7 @@ Make sub directories under Features-
 
 
 
-To extract the features for all the decoys from scratch run the scripts in Feat_script directory-
+For extracting the features for all the decoys run the scripts in Feat_script directory-
 
 
 
@@ -122,11 +109,11 @@ Extract transformer feature for each residue of all  decoys
       
 ### Parameters
 
---decoy-location   Location of the CASP folders
+--decoy-location   Location of the unzipped CASP folders
            
 --output-location  Location for storing the output features
 
-# Or download the preprocessed data
+# Alternative: Downloading the preprocessed data
 
 To save time all the above features can be downloaded from the links below-
 
