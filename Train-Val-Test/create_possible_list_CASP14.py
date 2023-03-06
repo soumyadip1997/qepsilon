@@ -37,6 +37,6 @@ for i in range(len(casp_ed)):
        except:
             print("No")
 res=np.array(res).reshape(-1,4)
-np.save("Test_CASP14_new.npy",res)
+np.save("Q-epsilon/Test_CASP14_new.npy",res)
     
 
