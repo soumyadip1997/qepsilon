@@ -98,13 +98,12 @@ import glob
 from multiprocessing import Pool
 
 F=open("FAILURE_NEIGH","w+")
-output_path="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/"
+output_path="Features/GRAPHNEIGH/"
 if __name__ == "__main__":
-    loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/"
-    CASP_DIR=["CASP14"]
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
     for p1 in CASP_DIR:
 
-        req_loc=glob.glob(loc+p1+"/decoys/*/*")
+        req_loc=glob.glob(p1+"/decoys/*/*")
         
         flag=0
         
