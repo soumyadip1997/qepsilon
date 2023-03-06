@@ -2,16 +2,16 @@ import glob
 import pandas as pd
 import numpy as np
 import os
-neigh_atom="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Same_Res_Index_"
-neigh_res="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Residue_Neigh_"
-gdtts="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/gdtts_"
+neigh_atom="Features/GRAPHNEIGH/Same_Res_Index_"
+neigh_res="Features/GRAPHNEIGH/Residue_Neigh_"
+gdtts="Features/GDT_TS/gdtts_"
 #gdtha="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_HA/gdtha_"
 #cad="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/CAD/globalcad_"
 #tm="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TMscore/tmscore_"
-trans="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TRANS/Trans_"
-one_hot_atom="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/ATOM/atom_one_hot_"
+trans="Features/TRANS/Trans_"
+one_hot_atom="Features/ATOM/atom_one_hot_"
 #gdt=glob.glob(gdtts+"*")
-df=np.load("/s/lovelace/c/nobackup/asa/soumya16/QA_project/data_script/NEWCASP14.npy")
+df=np.load("NEWCASP14.npy")
 casp_ed=np.array(df[:,0])
 target_list=np.array(df[:,1])
 decoy_list=np.array(df[:,2])
