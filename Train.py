@@ -148,19 +148,19 @@ if  __name__ == "__main__":
                         help='Test set')
  
 
-    parser.add_argument('--gdtts',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/gdtts_" ,
+    parser.add_argument('--gdtts',type=str, default="Features/GDT_TS/gdtts_" ,
                         help='path to gdtts')
-    parser.add_argument('--atom-one-hot',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/ATOM/atom_one_hot_" ,
+    parser.add_argument('--atom-one-hot',type=str, default="Features/ATOM/atom_one_hot_" ,
                         help='path to one hot atom encoding')
-    parser.add_argument('--same-res-atom-neigh',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Same_Res_Index_" ,
+    parser.add_argument('--same-res-atom-neigh',type=str, default="Features/GRAPHNEIGH/Same_Res_Index_" ,
                         help='path to same residue atom neighbours')
-    parser.add_argument('--diff-res-atom-neigh',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Diff_Res_Index_" ,
+    parser.add_argument('--diff-res-atom-neigh',type=str, default="Features/GRAPHNEIGH/Diff_Res_Index_" ,
                         help='path to diff residue atom neighbours')
-    parser.add_argument('--res-neigh',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Residue_Neigh_" ,
+    parser.add_argument('--res-neigh',type=str, default="Features/GRAPHNEIGH/Residue_Neigh_" ,
                         help='path to residue neighbour')
-    parser.add_argument('--path-res-trans',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TRANS/Trans_" ,
+    parser.add_argument('--path-res-trans',type=str, default="Features/TRANS/Trans_" ,
                         help='path to transformer feature')
-    parser.add_argument('--res-no',type=str, default="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/Atomfreq/atomfreq_" ,
+    parser.add_argument('--res-no',type=str, default="Features/Atomfreq/atomfreq_" ,
                         help='path to residue number')
     args = parser.parse_args()
     torch.manual_seed(args.seed)
