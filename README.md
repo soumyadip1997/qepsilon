@@ -1,7 +1,6 @@
 # QA-with-graph-convolution-guided-by-a-loss-function-designed-for-high-quality-decoys
 
 
-Train_Val_Test.zip - It contains all the Training, Validation and Test decoy names along with their targets and CASP version
 
 Feat_script - It contains all the scripts for extracting atom and residue features along with their neighbours.
 
@@ -72,6 +71,23 @@ number of atoms inside each residue - https://zenodo.org/record/7694318/files/At
 
 gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
+# Data for training,validation and testing
+
+Unzip the Train_Val_Test.zip. 
+
+Train.npy - Train set
+
+Val.npy - Validation Set
+
+Test_CASP13_new.npy - Test Set with CASP13 dcoys
+
+Test_CASP14_new.npy - Test Set with CASP14 dcoys
+
+valid_targets_CASP13.npy -  CASP13 targets 
+
+valid_targets_CASP14.npy -  CASP14 targets
+
+
 # Training 
 
 We do a two step training process. 
@@ -90,9 +106,10 @@ To save time we have provided our best model -
 
 Downloading the model -  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
-After training for a total of 60 epochs or downloading the model run the following-
+After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
-      python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result.csv
+      python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy/Test_CASP14_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13.csv/result_14.csv
+
 
 
 
@@ -100,6 +117,6 @@ After training for a total of 60 epochs or downloading the model run the followi
 
 For calculating the pearson and spearman corelation scores and plotting data run the following -
 
-      python plot_score.py --result-file result.csv --targets valid_targets_CASP14.csv --plot-name CASP13.pdf
+      python plot_score.py --result-file result_13.csv/result_14.csv --targets valid_targets_CASP14.csv/valid_targets_CASP13.csv --plot-name CASP13.pdf/CASP14.pdf
 
 
