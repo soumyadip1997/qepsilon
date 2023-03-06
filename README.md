@@ -107,7 +107,7 @@ Extract transformer feature for each residue of all  decoys
       
 ### Parameters
 
---decoy-location   Location of the decoys parent directory
+--decoy-location   Location of the parent directory of the decoys
            
 --output-location  Location of output
 
