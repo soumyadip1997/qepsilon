@@ -143,7 +143,7 @@ where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfr
  
 # Creating Train,Validation and Test Set
 
-Again it can be done from scratch or it can be done from the File provided in the repository
+Again it can be done from **scratch** or it can be done from the **File** provided in the repository
 
 ## To do it from scratch:
 
