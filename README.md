@@ -111,7 +111,7 @@ Extract transformer feature for each residue of all  decoys
            
 --output-location  Location for storing the output features
 
-# Or alternatively download the preprocessed data
+# Or download the preprocessed data
 
 To save time all the above features can be downloaded from the links below-
 
