@@ -100,8 +100,10 @@ To create the Test set first run
 
       python process_CASP13_14.py 
       
-Then run 
+Then run
+
       python create_possible_list_CASP13.py 
+      
       python create_possible_list_CASP14.py 
  
 This will create the test sets for CASP13 and 14 respectively.
