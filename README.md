@@ -35,7 +35,7 @@ First install dependencies in a conda environment and clone the repository-
            cd Q-epsilon
 
 
-# Decoy Features and creating Train-Val-Test set
+# Generating decoy features and creating Train-Val-Test set
 It can be done from 
 
 **scratch** 
@@ -117,7 +117,7 @@ Extract transformer feature for each residue of all  decoys
 
 Then we need to create Train,Val and Test Set
 
-## Creating Train,Validation and Test Set
+##  Train,Validation and Test Set
 
 Run the scripts inside Train_Val_Test directory.
       
