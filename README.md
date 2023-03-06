@@ -50,9 +50,18 @@ CASP13 - https://zenodo.org/record/7697275/files/CASP13.zip?download=1
 
 CASP14 - https://zenodo.org/record/7697275/files/CASP14.zip?download=1
 
-# Manual extraction of decoy features
+# Decoy features
 
-To manually extract the features for all the decoys run the scripts in Feat_script directory-
+First make a new folder by the name "Features"
+
+           mkdir Features
+
+
+## From scratch
+
+To extract the features for all the decoys from scratch run the scripts in Feat_script directory-
+
+
 
 Extract one hot encodings for all the atoms of  decoys
 
@@ -78,7 +87,7 @@ Extract transformer feature for each residue of all  decoys
  
       python transformer_feat.py 
 
-# Or alternatively download the preprocessed data-
+# Or alternatively download the preprocessed data
 
 To save time all the above features can be downloaded from the links below-
 
@@ -92,6 +101,13 @@ number of atoms inside each residue - https://zenodo.org/record/7694318/files/At
 
 gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
+
+Then unzip the files and store them inside Features Folder
+
+           unzip <Filename.zip> -d Features/
+           
+where <Filename.zip> are the different files that we downloaded          
+ 
 # Creating Train,Validation and Test Set
 
 ### To do it from scratch:
