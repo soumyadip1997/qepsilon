@@ -9,10 +9,7 @@ import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 import glob
 import os
-def writeCache(env, cache):
-        with env.begin(write=True) as txn:
-            for k, v in cache.items():
-                txn.put(k.encode(), v)
+
 
 def atom1(structure):
     atomslist=np.array(sorted(np.array(['0','1','2','3','4','5','6','7','8','9','10','11']))).reshape(-1,1)
@@ -39,12 +36,18 @@ def atom1(structure):
     atoms_onehot=enc.transform(np.array(atom_list).reshape(-1,1)).toarray()
     return atoms_onehot
 if __name__ == "__main__":
-    
+    parser = argparse.ArgumentParser(description='Atom_Feat')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='N',
+                        help='location for the output features to be stored')
+    args = parser.parse_args()
     F=open("Failure_atom.txt","a")
+    
+    output_path=args.output_location+"ATOM/atom_one_hot_"
     CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
-    output_path="Features/ATOM/atom_one_hot_"
     for p1 in CASP_DIR:
-        loc=glob.glob(p1+"/decoys/*/*")
+        loc=glob.glob(args.decoy_location+p1+"/decoys/*/*")
     
  
  
