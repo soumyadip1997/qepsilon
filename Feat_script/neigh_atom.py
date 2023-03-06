@@ -97,7 +97,6 @@ def help1(i,output_path):
 import glob
 #from multiprocessing import Pool
 
-output_path="Features/GRAPHNEIGH/"
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Neigh_Info')
     parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
