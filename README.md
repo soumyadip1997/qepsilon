@@ -22,6 +22,7 @@ Biopython 1.81
 
 Sklearn 1.2.0
 
+torchsampler 0.14.1 
 # Dataset
 
 To do manual extraction of the features we need the 3D structures of the decoys. It can be downloaded from the following links-
