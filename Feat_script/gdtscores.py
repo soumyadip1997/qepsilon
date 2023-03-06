@@ -14,13 +14,12 @@ from Bio.PDB import *
 
 
 if __name__ == "__main__":
-    CASP_DIR=["CASP14"]
-    temp_loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/"
-    output_path="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/"
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
+    output_path="Features/GDT_TS/"
 
     result_name=[]
     for p1 in CASP_DIR:
-        loc=glob.glob(temp_loc+p1+"/Labels/*")
+        loc=glob.glob(p1+"/Labels/*")
         for i in loc:
             target_name=(i.split("/")[-1])
             #print(i)
