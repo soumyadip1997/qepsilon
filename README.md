@@ -61,6 +61,7 @@ First make a new folder by the name "Features" inside Q-epsilon
 
            mkdir Features
 
+
 Then make sub directories under Features-
 
            mkdir Features/ATOM
@@ -74,6 +75,10 @@ Then make sub directories under Features-
            mkdir Features/ATOMfreq
            
            mkdir Features/GDT_TS
+
+
+Feature extraction can be done either from scratch or can be downloaded from the website provided.
+
 
 ## Extracting from scratch
 
@@ -136,6 +141,8 @@ where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfr
  
 # Creating Train,Validation and Test Set
 
+Again it can be done from scratch or it can be done from the File provided in the repository
+
 ## To do it from scratch:
 
 ## Train and validation set
@@ -180,7 +187,7 @@ This will create the test sets for CASP13 and 14 respectively.
 
 --decoy-location - Location of the CASP Folders
 
-### Or
+### Or the alternative way
 
 To save time use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
