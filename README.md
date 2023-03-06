@@ -65,9 +65,9 @@ First make a new folder by the name "Features" inside Q-epsilon
 
 Feature extraction can be done either from 
 
-scratch 
+**Scratch** 
 
-**Or**
+Or
 
 Features can be **downloaded** from the website provided.
 
@@ -76,17 +76,7 @@ Features can be **downloaded** from the website provided.
 
 Make sub directories under Features-
 
-           mkdir Features/ATOM
-           
-           mkdir Features/NEIGH_RES
-           
-           mkdir Features/GRAPHNEIGH
-           
-           mkdir Features/TRANS
-           
-           mkdir Features/ATOMfreq
-           
-           mkdir Features/GDT_TS
+           sh create.sh
 
 
 
