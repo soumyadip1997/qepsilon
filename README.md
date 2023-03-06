@@ -121,7 +121,7 @@ one hot encodings of atoms - https://zenodo.org/record/7694318/files/ATOM.zip?do
 
 same and diferent residue atom neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
 
-residue neighbours - 
+residue neighbours - https://zenodo.org/record/7703112/files/NEIGH_RES.zip?download=1
 
 number of atoms inside each residue - https://zenodo.org/record/7694318/files/Atomfreq.zip?download=1
 
