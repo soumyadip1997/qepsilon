@@ -34,9 +34,21 @@ First install dependencies in a conda environment and clone the repository-
            
            cd Q-epsilon
 
-# Dataset
 
-To do manual extraction of the features, 3D structures of the decoys are required. It can be downloaded from the following links-
+# Decoy Features
+Features can be extracted from 
+
+**scratch** 
+
+or 
+
+it can be **downloaded** from the website given.
+
+# Extraction of features from scratch
+
+## Downloading decoy files 
+
+To do manual extraction of the features, we need to download the 3D structures of the decoys using the following links-
 
 CASP9 - https://zenodo.org/record/7697275/files/CASP9.zip?download=1
 
@@ -50,7 +62,7 @@ CASP13 - https://zenodo.org/record/7697275/files/CASP13.zip?download=1
 
 CASP14 - https://zenodo.org/record/7697275/files/CASP14.zip?download=1
 
-Then unzip the folders using 
+Then we unzip the folders using 
 
            unzip <CASP_FILE> -d Q-epsilon/
 
