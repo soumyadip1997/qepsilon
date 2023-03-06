@@ -112,7 +112,11 @@ This will create the test sets for CASP13 and 14 respectively.
 
 To save time use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
-Unzip the Train_Val_Test.zip. It contains the following files
+Unzip the Train_Val_Test.zip. 
+
+      unzip Train_Val_Test.zip -d Q-epsilon/
+
+It contains the following files
 
 Train.npy - Train set
 
