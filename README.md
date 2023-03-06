@@ -50,9 +50,14 @@ CASP13 - https://zenodo.org/record/7697275/files/CASP13.zip?download=1
 
 CASP14 - https://zenodo.org/record/7697275/files/CASP14.zip?download=1
 
+Then unzip the folders using 
+
+           unzip <CASP_FILE> -d Q-epsilon/
+
+where <CASP_FILE> represents the downloaded CASP decoy files
 # Decoy features
 
-First make a new folder by the name "Features"
+First make a new folder by the name "Features" inside Q-epsilon
 
            mkdir Features
 
@@ -104,7 +109,7 @@ gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
 Then unzip the files and store them inside Features Folder
 
-           unzip <Filename.zip> -d Features/
+           unzip <Filename.zip> -d Q-epsilon/Features/
            
 where <Filename.zip> are the different files that we downloaded          
  
