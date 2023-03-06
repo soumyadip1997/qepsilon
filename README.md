@@ -161,7 +161,7 @@ After training for a total of 60 epochs or downloading the model run the followi
 This saves all the result to the file specified via --result-file argument which in this case is either result_13 or result_14.csv. 
 
 
-###Parameters
+### Parameters
 --workers - number of workers default 12
 
 --model-path - Location to a model for loading
@@ -196,7 +196,7 @@ For calculating the pearson and spearman corelation scores and plotting data run
 
       python plot_score.py --result-file result_13.csv/result_14.csv --targets valid_targets_CASP14.csv/valid_targets_CASP13.csv --plot-name CASP13.pdf/CASP14.pdf
       
-### Prameters
+### Parameters
 
 --result-file - Location to the file produced by Test.py
 
