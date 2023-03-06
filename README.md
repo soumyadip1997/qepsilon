@@ -44,17 +44,29 @@ CASP14 - https://zenodo.org/record/7697275/files/CASP14.zip?download=1
 
 To manually extract the features for all the decoys run the scripts in Feat_script directory-
 
-atom_feat.py - Extract one hot encodings for all the atoms of  decoys
+Extract one hot encodings for all the atoms of  decoys
 
-gdtscores.py - Extract the gdtts of all  decoys
+python atom_feat.py 
 
-neigh_atom.py - Extract all the atom neighbours of all  decoys
+Extract the gdtts of all  decoys
 
-neigh_res.py - Extract all the residue neighbours of all decoys
+python gdtscores.py 
 
-res_number.py - Extract the  number of atoms present inside each residue of all decoys
+ Extract all the same and different residue atom neighbours of all  decoys
 
-transformer_feat.py - Extract transformer feature for each residue of all  decoys
+python neigh_atom.py 
+
+Extract all the residue neighbours of all decoys
+
+python neigh_res.py  
+
+Extract the  number of atoms present inside each residue of all decoys
+
+python res_number.py  
+
+ Extract transformer feature for each residue of all  decoys
+
+python transformer_feat.py 
 
 # Or alternatively download the preprocessed data-
 
