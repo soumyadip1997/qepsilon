@@ -27,7 +27,7 @@ if __name__ == "__main__":
     
     result_name=[]
     for p1 in CASP_DIR:
-        loc=glob.glob(args.deoy_location+p1+"/Labels/*")
+        loc=glob.glob(args.decoy_location+p1+"/Labels/*")
         for i in loc:
             target_name=(i.split("/")[-1])
             #print(i)
