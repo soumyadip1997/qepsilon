@@ -35,8 +35,8 @@ First install dependencies in a conda environment and clone the repository-
            cd Q-epsilon
 
 
-# Decoy Features
-Features can be extracted from 
+# Decoy Features and creating Train-Val-Test set
+It can be done from 
 
 **scratch** 
 
@@ -44,7 +44,9 @@ or
 
 it can be **downloaded** from the website given.
 
-# Extraction of features from scratch
+# From scratch
+
+First we download the 3D structure decoy files.
 
 ## Downloading decoy files 
 
@@ -77,9 +79,9 @@ Make sub directories under Features-
 
            sh create.sh
 
+## Running feature extraction scripts
 
-
-For extracting the features for all the decoys run the scripts in Feat_script directory-
+Then for extracting the features of all the decoys run the scripts in Feat_script directory-
 
 
 
@@ -113,42 +115,9 @@ Extract transformer feature for each residue of all  decoys
            
 --output-location  Location for storing the output features
 
-# Alternative: Downloading the preprocessed data
+Then we need to create Train,Val and Test Set
 
-To save time all the above features can be downloaded from the links below-
-
-transformer feature for residue - https://colostate-my.sharepoint.com/:u:/g/personal/soumya16_colostate_edu/ESN_lob-izZKm86bIZ39HIQBNWybwmfvJHve-G1394B49Q?e=7oO7E3
-
-one hot encodings of atoms - https://zenodo.org/record/7694318/files/ATOM.zip?download=1
-
-same and diferent residue atom neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
-
-residue neighbours - https://zenodo.org/record/7703112/files/NEIGH_RES.zip?download=1
-
-number of atoms inside each residue - https://zenodo.org/record/7694318/files/Atomfreq.zip?download=1
-
-gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
-
-
-Then unzip the files and store them inside Features Folder
-
-           unzip <Filename.zip> -d Q-epsilon/Features/
-           
-where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfreq.zip,GDT_TS.zip,GRAPHNEIGH.zip,RES_NEIGH.zip)         
- 
-# Creating Train,Validation and Test Set
-
-Again it can be done from 
-
-**Scratch** 
-
-or 
-
-It can be done from the **File**(Train_Val_Test.zip) provided in the repository
-
-## To do it from scratch:
-
-## Train and validation set
+## Creating Train,Validation and Test Set
 
 Run the scripts inside Train_Val_Test directory.
       
@@ -190,7 +159,33 @@ This will create the test sets for CASP13 and 14 respectively.
 
 --decoy-location - Location of the CASP Folders
 
-### Or the alternative way
+
+# Alternative: Downloading the preprocessed data and use the already prepared Train-Val-Test File
+
+To save time all the above features can be downloaded from the links below-
+
+transformer feature for residue - https://colostate-my.sharepoint.com/:u:/g/personal/soumya16_colostate_edu/ESN_lob-izZKm86bIZ39HIQBNWybwmfvJHve-G1394B49Q?e=7oO7E3
+
+one hot encodings of atoms - https://zenodo.org/record/7694318/files/ATOM.zip?download=1
+
+same and diferent residue atom neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
+
+residue neighbours - https://zenodo.org/record/7703112/files/NEIGH_RES.zip?download=1
+
+number of atoms inside each residue - https://zenodo.org/record/7694318/files/Atomfreq.zip?download=1
+
+gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
+
+
+Then unzip the files and store them inside Features Folder
+
+           unzip <Filename.zip> -d Q-epsilon/Features/
+           
+where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfreq.zip,GDT_TS.zip,GRAPHNEIGH.zip,RES_NEIGH.zip)         
+ 
+## Creating Train,Validation and Test Set
+
+
 
 To save time use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
