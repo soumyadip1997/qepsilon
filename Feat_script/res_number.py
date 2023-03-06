@@ -15,14 +15,12 @@ def res1(structure):
     atom_freq=np.array(atom_freq)
     return atom_freq
 if __name__ == "__main__":
-    loc="/s/lovelace/c/nobackup/asa/soumya16/QA_project/"
-    CASP_DIR=["CASP13_EXtra"]
-    temp_loc="/s/jawar/f/nobackup/Soumyadip/"
-    output_path="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/Atomfreq/"
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
+    output_path="Features/Atomfreq/"
 
     for p1 in CASP_DIR:
 
-        req_loc=glob.glob(loc+p1+"/decoys/*/*")
+        req_loc=glob.glob(p1+"/decoys/*/*")
 
         flag=0
 
