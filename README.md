@@ -50,23 +50,23 @@ Extract one hot encodings for all the atoms of  decoys
 
 Extract the gdtts of all  decoys
 
-  python gdtscores.py 
+      python gdtscores.py 
 
 Extract all the same and different residue atom neighbours of all  decoys
 
-  python neigh_atom.py 
+      python neigh_atom.py 
 
 Extract all the residue neighbours of all decoys
 
-  python neigh_res.py  
+      python neigh_res.py  
 
 Extract the  number of atoms present inside each residue of all decoys
 
-  python res_number.py  
+      python res_number.py  
 
 Extract transformer feature for each residue of all  decoys
  
-  python transformer_feat.py 
+      python transformer_feat.py 
 
 # Or alternatively download the preprocessed data-
 
