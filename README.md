@@ -1,9 +1,6 @@
 # QA-with-graph-convolution-guided-by-a-loss-function-designed-for-high-quality-decoys
 
 
-
-Feat_script - It contains all the scripts for extracting atom and residue features along with their neighbours.
-
 # Requirements
 Python 3.9.16
 
