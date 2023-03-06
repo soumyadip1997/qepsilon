@@ -15,12 +15,20 @@ def res1(structure):
     atom_freq=np.array(atom_freq)
     return atom_freq
 if __name__ == "__main__":
-    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
-    output_path="Features/Atomfreq/"
+    parser = argparse.ArgumentParser(description='Res_Number_Info')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='O',
+                        help='location for the output features to be stored')
+    args = parser.parse_args()
 
+    
+    output_path=args.output_location+"/ATOMfreq/"
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
+    
     for p1 in CASP_DIR:
 
-        req_loc=glob.glob(p1+"/decoys/*/*")
+        req_loc=glob.glob(args.decoy_location+p1+"/decoys/*/*")
 
         flag=0
 
