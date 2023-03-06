@@ -62,7 +62,13 @@ First make a new folder by the name "Features" inside Q-epsilon
            mkdir Features
 
 
-Then make sub directories under Features-
+
+Feature extraction can be done either from scratch or can be downloaded from the website provided.
+
+
+## Extracting from scratch
+
+Make sub directories under Features-
 
            mkdir Features/ATOM
            
@@ -77,10 +83,6 @@ Then make sub directories under Features-
            mkdir Features/GDT_TS
 
 
-Feature extraction can be done either from scratch or can be downloaded from the website provided.
-
-
-## Extracting from scratch
 
 To extract the features for all the decoys from scratch run the scripts in Feat_script directory-
 
