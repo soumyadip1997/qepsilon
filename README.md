@@ -1,5 +1,4 @@
-# QA-with-graph-convolution-guided-by-a-loss-function-designed-for-high-quality-decoys
-
+# Q-epsilon
 
 # Requirements
 Python 3.9.16
