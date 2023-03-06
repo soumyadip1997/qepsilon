@@ -2,11 +2,9 @@ import random
 import torch
 from torch.utils.data import Dataset
 from torchsampler import ImbalancedDatasetSampler
-import torchvision.transforms as transforms
 from torch.utils.data import sampler
 import six
 import sys
-from PIL import Image
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
