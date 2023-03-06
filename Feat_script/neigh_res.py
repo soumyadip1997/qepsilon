@@ -1,9 +1,4 @@
-'''
-One hot encoded residue infomration using SKlearn Library
 
-Output is N*M where N is the total number of atoms and M is the encoded features of the residues.
-Any unknown  residue is mapped to 1
-'''
 import pandas as pd
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 from Bio.PDB.NeighborSearch import NeighborSearch
