@@ -10,6 +10,8 @@ import warnings
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 import glob
+import argparse
+
 from Bio.PDB import *
 
 def writeCache(env, cache):
@@ -18,10 +20,14 @@ def writeCache(env, cache):
                 txn.put(k.encode(), v)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Feat')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
     CASP_DIR=["CASP13","CASP14"]
+    args = parser.parse_args()
 
     for p1 in CASP_DIR:
-        loc=glob.glob(p1+"/Labels/*")
+        loc=glob.glob(args.decoy_location+p1+"/Labels/*")
         for i in loc:
             result=[]
             target_name=(i.split("/")[-1])
