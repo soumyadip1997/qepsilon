@@ -64,13 +64,12 @@ def neigh1(i11):
         
     except:
         F.write(f"{i11}\n")
-output_path="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/NEIGH_RES/"
+output_path="Features/NEIGH_RES/"
 F=open("Failure_neigh_res_CASP9","w+")
 if __name__ == "__main__":
-    input_structure=glob.glob("/s/lovelace/c/nobackup/asa/soumya16/QA_project/CASP9/decoys/*/*.pdb")
-    #print(proteins) 
-    #input_structure_list=glob.glob(input_structure+"*")
-    k1=0 
-    #proteins=["Q03957"]
-    with Pool(30) as p:
+    CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
+    for j in CASP_DIR:
+        input_structure=glob.glob(j+"/decoys/*/*.pdb")
+        k1=0 
+        with Pool(30) as p:
             p.map(neigh1,[input_structure[i] for i in range(len(input_structure))])
