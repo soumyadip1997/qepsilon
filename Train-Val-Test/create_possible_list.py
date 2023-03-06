@@ -8,11 +8,11 @@ parser.add_argument('--same-res-atom-neigh',type=str, default="Q-epsilon/Feature
                         help='path to same residue atom neighbours')
 parser.add_argument('--res-neigh',type=str, default="Q-epsilon/Features/GRAPHNEIGH/Residue_Neigh_" ,
                         help='path to residue neighbour')
-parser.add_argument('--gdtts',type=str, default="Features/GDT_TS/gdtts_" ,
+parser.add_argument('--gdtts',type=str, default="Q-epsilon/Features/GDT_TS/gdtts_" ,
                         help='path to gdtts')
-parser.add_argument('--atom-one-hot',type=str, default="Features/ATOM/atom_one_hot_" ,
+parser.add_argument('--atom-one-hot',type=str, default="Q-epsilon/Features/ATOM/atom_one_hot_" ,
                         help='path to one hot atom encoding')
-parser.add_argument('--path-res-trans',type=str, default="Features/TRANS/Trans_" ,
+parser.add_argument('--path-res-trans',type=str, default="Q-epsilon/Features/TRANS/Trans_" ,
                         help='path to transformer feature')
 args = parser.parse_args()
  
