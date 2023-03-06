@@ -64,9 +64,11 @@ def neigh1(i11):
         
     except:
         F.write(f"{i11}\n")
-output_path="Features/NEIGH_RES/"
-F=open("Failure_neigh_res_CASP9","w+")
+
 if __name__ == "__main__":
+    
+    output_path="Features/NEIGH_RES/"
+    F=open("Failure_neigh_res_CASP9","w+")
     CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
     for j in CASP_DIR:
         input_structure=glob.glob(j+"/decoys/*/*.pdb")
