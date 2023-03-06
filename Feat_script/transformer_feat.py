@@ -13,6 +13,7 @@ import pandas as pd
 import math
 from multiprocessing import Pool
 import pickle
+import argparse
 
 from Bio.PDB.PDBParser import PDBParser
 from Bio.PDB.Polypeptide import *
@@ -75,6 +76,15 @@ def transformer_prep(loc,model=None,tokenizer=None,device=None):
 
     
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Res_Feat')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='O',
+                        help='location for the output features to be stored')
+    args = parser.parse_args()
+
+    
+    output_path=args.output_location+"/TRANS/"
     tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_uniref50", do_lower_case=False )
     model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_uniref50")
 
@@ -88,15 +98,14 @@ if __name__ == "__main__":
     #model=None
     #tokenizer=None
     CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
-    output_loc="Features/TRANS/"
     for p1 in CASP_DIR:
-        decoy_loc=glob.glob(p1+"/decoys/*/*")
+        decoy_loc=glob.glob(args.decoy_location+p1+"/decoys/*/*")
         for i in decoy_loc:
              try:
                 flag=1
                 target_name=(i.split("/")[-2])
                 decoy_name=(i.split("/")[-1]).split(".")[0]
-                req_output_name=output_loc+"Trans_"+str(target_name)+"_"+str(decoy_name)
+                req_output_name=output_path+"Trans_"+str(target_name)+"_"+str(decoy_name)
                 transformer_features=transformer_prep(i,model,tokenizer,device)
                 #print(transformer_features)
                 np.save(req_output_name,transformer_features)
