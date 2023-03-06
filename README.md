@@ -112,11 +112,11 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
       python Train.py --batch-size 70 --epochs 10 --workers 12 --seed 42 --devices 1 --nodes 1 --loss-type 1 --train-set Train.npy --val-set Val.npy --test-set Test_CASP13_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --load-model best_model_l1.ckpt --save-model best_model.ckpt
       
 ### Parameters
---batch-size  - the batch size default 70
+--batch-size  - Batch size 
 
---epochs - the number of epochs for training default 50
+--epochs - Number of epochs for training 
 
---workers - number of workers default 12
+--workers - Number of workers 
 
 --seed - Setting the seed value of pytorch
 
@@ -124,7 +124,7 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 
 --nodes - Number of nodes to be used
 
---loss-type - specify which loss function to be used i.e. 0 for L1-Loss and 1 for $\epsilon$ modified L1-Loss
+--loss-type - Specify which loss function to be used i.e. 0 for L1-Loss and 1 for $\epsilon$ modified L1-Loss
 
 --train-set - Train set location
 
@@ -162,7 +162,7 @@ This saves all the result to the file specified via --result-file argument which
 
 
 ### Parameters
---workers - number of workers default 12
+--workers - Number of workers
 
 --model-path - Location to a model for loading
 
