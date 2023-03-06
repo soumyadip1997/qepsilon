@@ -36,7 +36,7 @@ First install dependencies in a conda environment and clone the repository-
 
 # Dataset
 
-To do manual extraction of the features we need the 3D structures of the decoys. It can be downloaded from the following links-
+To do manual extraction of the features 3D structures of the decoys are required. It can be downloaded from the following links-
 
 CASP9 - https://zenodo.org/record/7697275/files/CASP9.zip?download=1
 
