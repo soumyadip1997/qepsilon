@@ -1,8 +1,4 @@
-'''
-Using Sklearn One hot encoder to encode the atoms
-Output is of size N*M where N is the total number of atoms and M is the total number of encoded features
 
-'''
 import warnings
 from Bio.PDB import *
 import numpy as np
