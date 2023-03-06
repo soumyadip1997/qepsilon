@@ -11,6 +11,7 @@ import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 import glob
 from Bio.PDB import *
+import argparse
 
 
 if __name__ == "__main__":
