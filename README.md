@@ -46,7 +46,7 @@ To manually extract the features for all the decoys run the scripts in Feat_scri
 
 Extract one hot encodings for all the atoms of  decoys
 
-  python atom_feat.py 
+      python atom_feat.py 
 
 Extract the gdtts of all  decoys
 
