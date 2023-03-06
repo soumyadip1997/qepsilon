@@ -68,7 +68,19 @@ number of atoms inside each residue - https://zenodo.org/record/7694318/files/At
 
 gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
 
-# Data for training,validation and testing
+# Divinding the data for training,validation and testing
+
+### To do it from scratch:
+
+      Run the scripts inside Train_Val_Test directory.
+      
+      To create the Train and Validation set first run the create_possible_list.py and then run the create_train_val.py
+      
+      To create the Test set first run the process_CASP13_14.py and then run create_possible_list_CASP13.py and create_possible_list_CASP14.py to create the test sets for CASP13 and 14 respectively.
+      
+### Or
+
+To save time we have already provided the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
 Unzip the Train_Val_Test.zip. 
 
