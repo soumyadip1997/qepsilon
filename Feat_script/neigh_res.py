@@ -18,7 +18,7 @@ import lmdb
 import math
 import numpy as np
 from multiprocessing import Pool
-def neigh1(i11):
+def neigh1(i11,output_path):
     parser = PDBParser()
     try:
     #if True:
@@ -66,12 +66,21 @@ def neigh1(i11):
         F.write(f"{i11}\n")
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Res_Neigh_Info')
+    parser.add_argument('--decoy-location', type=str, default="Q-epsilon/", metavar='N',
+                        help='location to the downloaded decoy 3D structures of all CASP')
+    parser.add_argument('--output-location', type=str, default="Q-epsilon/Features/", metavar='O',
+                        help='location for the output features to be stored')
+    args = parser.parse_args()
+
     
-    output_path="Features/NEIGH_RES/"
+    output_path=args.output_location+"/NEIGH_RES/"
     F=open("Failure_neigh_res_CASP9","w+")
     CASP_DIR=['CASP9','CASP10','CASP11','CASP12','CASP13','CASP14']
     for j in CASP_DIR:
-        input_structure=glob.glob(j+"/decoys/*/*.pdb")
-        k1=0 
-        with Pool(30) as p:
-            p.map(neigh1,[input_structure[i] for i in range(len(input_structure))])
+        input_structure=glob.glob(args.decoy_location+j+"/decoys/*/*.pdb")
+        k1=0
+        for i in range(len(input_structure)):
+               neigh1(input_structure[i],output_path)
+        #with Pool(30) as p:
+        #    p.map(neigh1,[input_structure[i] for i in range(len(input_structure))])
