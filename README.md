@@ -117,7 +117,7 @@ Extract transformer feature for each residue of all  decoys
 
 Then we need to create Train,Val and Test Set
 
-##  Train,Validation and Test Set
+## Creating Train and Validation  Set
 
 Run the scripts inside Train_Val_Test directory.
       
@@ -129,7 +129,7 @@ Then run
 
       create_train_val.py --output-path Q-epsilon
 
-## Test Set
+## Creating Test Set
 
 To create the Test set first run 
 
