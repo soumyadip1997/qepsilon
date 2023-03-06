@@ -2,13 +2,13 @@ import glob
 import pandas as pd
 import numpy as np
 import os
-neigh_atom="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Same_Res_Index_"
-neigh_res="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GRAPHNEIGH/Residue_Neigh_"
-gdtts="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/GDT_TS/gdtts_"
-trans="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/TRANS/Trans_"
-one_hot_atom="/s/lovelace/c/nobackup/asa/soumya16/QA_project/Features/ATOM/atom_one_hot_"
+neigh_atom="Features/GRAPHNEIGH/Same_Res_Index_"
+neigh_res="Features/GRAPHNEIGH/Residue_Neigh_"
+gdtts="Features/GDT_TS/gdtts_"
+trans="Features/TRANS/Trans_"
+one_hot_atom="Features/ATOM/atom_one_hot_"
 #gdt=glob.glob(gdtts+"*")
-df=pd.read_csv("/s/lovelace/c/nobackup/asa/soumya16/QA_project/decoys.csv")
+df=pd.read_csv("decoys.csv")
 casp_ed=np.array(df["casp_ed"])
 target_list=np.array(df["target_id"])
 decoy_list=np.array(df["decoy_id"])
