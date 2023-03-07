@@ -293,7 +293,7 @@ This saves all the results to the file specified by --result-file argument which
 
 # Plotting and calculating Result
 
-For calculating the pearson and spearman corelation scores and plotting data run the following -
+For calculating the pearson and spearman correlation scores and plotting data run the following -
 
       python plot_score.py --result-file result_13.csv/result_14.csv --targets valid_targets_CASP14.csv/valid_targets_CASP13.csv --plot-name CASP13.pdf/CASP14.pdf
       
