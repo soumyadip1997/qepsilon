@@ -35,16 +35,16 @@ First install dependencies in a conda environment and clone the repository-
            cd Q-epsilon
 
 
-# Generating decoy features and creating Train-Val-Test set
-It can be done from 
+# Data Preprocessing and Train-Val-Test split
+It can be done either from 
 
-**scratch** 
+1. **Scratch** 
 
 or 
 
-it can be **downloaded** from the website given.
+2. **Use the already prepared Train,Val and Test set and Preprocessed data**
 
-# From scratch
+**From scratch**
 
 First we download the 3D structure decoy files.
 
@@ -76,45 +76,42 @@ Make sub directories under Features-
 
            sh create.sh
 
-## Running feature extraction scripts
 
-For extracting the features of all the decoys run the scripts in Feat_script directory-
-
+Then we extract the features of all the decoys by running the scripts in Feat_script directory-
 
 
-Extract one hot encodings for all the atoms of  decoys
+
+For extracting one hot encodings of all the atoms of  decoys
 
       python atom_feat.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-Extract the gdtts of all  decoys
+For extracting the gdtts of all  decoys
 
       python gdtscores.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-Extract all the same and different residue atom neighbours of all  decoys
+For extracting the same and different residue atom neighbours of all  decoys
 
       python neigh_atom.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-Extract all the residue neighbours of all decoys
+For extracting all the residue neighbours of all decoys
 
       python neigh_res.py  --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-Extract the  number of atoms present inside each residue of all decoys
+For extracting the  number of atoms present inside each residue of all decoys
 
       python res_number.py  --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-Extract transformer feature for each residue of all  decoys
+For extracting transformer feature for each residue of all  decoys
  
       python transformer_feat.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
       
-### Parameters
+**Parameters**
 
 --decoy-location   Location of the unzipped CASP folders
            
 --output-location  Location for storing the output features
 
 Then we need to create Train,Val and Test Set
-
-## Creating Train and Validation  Set
 
 Run the scripts inside Train_Val_Test directory.
       
@@ -126,7 +123,7 @@ Then run
 
       create_train_val.py --output-path Q-epsilon
 
-## Creating Test Set
+
 
 To create the Test set first run 
 
@@ -140,7 +137,7 @@ Then run
  
 This will create the test sets for CASP13 and 14 respectively.
 
-### Parameters
+**Parameters**
 
 --same-res-atom-neigh - Location of same residue atom neighbours
 
@@ -179,12 +176,8 @@ Then unzip the files and store them inside Features Folder
            unzip <Filename.zip> -d Q-epsilon/Features/
            
 where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfreq.zip,GDT_TS.zip,GRAPHNEIGH.zip,RES_NEIGH.zip)         
- 
-## Using already prepared Train,Validation and Test Set
 
-
-
-To save time use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
+Then use the Train_Val_Test.zip file which contains all the information for the train,validation and test sets.
 
 Unzip the Train_Val_Test.zip. 
 
@@ -260,7 +253,7 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 
 We use the best model saved by the $\epsilon$ modified L1-Loss network for testing.
 
-To save training time download the best model from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
+To save training time, the best model can be downloaded from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
 After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
