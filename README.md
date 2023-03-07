@@ -44,7 +44,7 @@ or
 
 2. **Use the already prepared Train,Val and Test set and Preprocessed data**
 
-**From scratch**
+# From scratch
 
 First we download the 3D structure decoy files.
 
