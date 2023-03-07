@@ -78,7 +78,7 @@ Make sub directories under Features-
 
 ## Running feature extraction scripts
 
-Then for extracting the features of all the decoys run the scripts in Feat_script directory-
+For extracting the features of all the decoys run the scripts in Feat_script directory-
 
 
 
