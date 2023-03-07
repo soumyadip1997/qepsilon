@@ -48,9 +48,6 @@ it can be **downloaded** from the website given.
 
 First we download the 3D structure decoy files.
 
-## Downloading decoy files 
-
-To do manual extraction of the features, we need to download the 3D structures of the decoys using the following links-
 
 CASP9 - https://zenodo.org/record/7697275/files/CASP9.zip?download=1
 
