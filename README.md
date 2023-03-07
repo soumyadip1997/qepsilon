@@ -109,7 +109,7 @@ For extracting transformer feature for each residue of all  decoys
 
 --decoy-location   Location of the unzipped CASP folders
            
---output-location  Location for storing the output features
+--output-location  Location for storing the output features having the required sub-directories
 
 Then we need to create Train,Val and Test Set
 
