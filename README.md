@@ -258,7 +258,7 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 
 # Testing 
 
-We use the best model saved by the $\epsilon$ modified L1-Loss for testing.
+We use the best model saved by the $\epsilon$ modified L1-Loss network for testing.
 
 To save training time download the best model from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
 
