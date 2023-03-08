@@ -30,9 +30,9 @@ torchsampler 0.14.1
 
 First install dependencies in a conda environment and clone the repository-
 
-           git clone https://github.com/soumyadip1997/Q-epsilon.git
+git clone https://github.com/soumyadip1997/Q-epsilon.git
            
-           cd Q-epsilon
+cd Q-epsilon
 
 
 # Data Preprocessing and Train-Val-Test split
