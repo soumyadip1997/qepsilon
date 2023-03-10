@@ -127,7 +127,7 @@ if  __name__ == "__main__":
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--workers',type=int , default=12,
-                        help='disables CUDA training')
+                        help='Number of workers')
     parser.add_argument('--seed', type=int, default=42, metavar='S',
                         help='random seed (default: 42)')
     parser.add_argument('--save-model', default="Models/",
