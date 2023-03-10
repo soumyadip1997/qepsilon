@@ -106,7 +106,7 @@ if  __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='PyTorch Lightening QA')
     parser.add_argument('--workers',type=int , default=0,
-                        help='disables CUDA training')
+                        help='Number of workers')
     parser.add_argument('--seed', type=int, default=42, metavar='S',
                         help='random seed (default: 42)')
     parser.add_argument('--model-path', default="best_model.ckpt",
