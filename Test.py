@@ -16,10 +16,9 @@ import glob
 from torch.utils.data import DataLoader
 import scipy.stats as ss1
 class GNN1(pl.LightningModule):
-    def __init__(self,result_file="Result.csv"):
+    def __init__(self):
         super().__init__()
-        self.File1=open(result_file,"w+")
-        self.write1=csv.writer(self.File1)
+        self.write1=None
         #self.source_atom_one_hot_1 = nn.Linear(12,1024)
         self.batch_size=1
         self.neigh_network_atom1 = GCNConv(12,1024)
@@ -157,9 +156,11 @@ if  __name__ == "__main__":
     # model
     path1=glob.glob(args.model_path)
     print(path1[0])
-    model = GNN1(args.result_file).load_from_checkpoint(path1[0])
+    model = GNN1().load_from_checkpoint(path1[0])
     model.eval()
-    model.result_file=args.result_file
+    File1=open(args.result_file,"w+")
+    write1=csv.writer(File1)
+    model.write1=write1
     # training
     trainer = pl.Trainer(min_epochs=3,accelerator="gpu", devices=args.devices, max_epochs=4,num_nodes=args.nodes,enable_checkpointing=False)#,limit_train_batches=10)  #,resume_from_checkpoint=path1)
     trainer.test(model,test_loader)
