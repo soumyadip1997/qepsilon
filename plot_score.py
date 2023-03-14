@@ -14,7 +14,7 @@ parser.add_argument('--plot-name',type=str, default="CASP13_Final.pdf" ,
 args=parser.parse_args()
 File=args.result_file
 df1=pd.read_csv(args.targets,sep=".\t",header=None,engine="python")
-targets=np.array(df1[1])
+targets=np.unique(np.array(df1[1]))
 df=np.array(pd.read_csv(File,header=None))
 names=np.array(df[:,0])
 rs=np.array(df[:,1],dtype=float)
