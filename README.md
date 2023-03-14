@@ -1,5 +1,8 @@
 # qepsilon
 
+[![DOI](https://zenodo.org/badge/607034727.svg)](https://zenodo.org/badge/latestdoi/607034727)
+
+
 Repository for Protein quality assessment with graph convolution guided by a loss function designed for high quality decoys
 
 # Dependencies
