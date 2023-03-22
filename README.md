@@ -245,7 +245,7 @@ For training with LDDT scores we use the pretrained GDTTS model.
 
 --test-set - Test set location
 
---gdtts - Location with the common prefix of GDTTS files
+--gdtts - Location with the common prefix of GDTTS/LDDT files
 
 --atom-one-hot - Location with the common prefix for the one hot encodings of atom files
 
@@ -295,7 +295,7 @@ This saves all the results to the file specified by --result-file argument which
 
 --test-set - Test set location
 
---gdtts - Location with the common prefix of GDTTS files
+--gdtts - Location with the common prefix of GDTTS/LDDT files
 
 
 --atom-one-hot - Location with the common prefix for the one hot encodings of atom files
@@ -323,7 +323,7 @@ For calculating the pearson and spearman correlation scores and plotting data ru
       
 **LDDT**      
       
-      python plot_score.py --result-file result_13_LDDT.csv/result_14_LDDT.csv --targets Targets_V13.csv/Targets_V14.csv --plot-name CASP13.pdf/CASP14.pdf
+      python plot_score.py --result-file result_13_LDDT.csv/result_14_LDDT.csv --targets targets_V13.csv/targets_V14.csv --plot-name CASP13.pdf/CASP14.pdf
       
 ### Parameters
 
