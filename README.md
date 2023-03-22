@@ -192,7 +192,7 @@ LDDT- https://zenodo.org/record/7760929/files/LDDT.zip?download=1
 
 Then unzip the files and store them inside Features Folder
 
-           unzip <Filename.zip> -d Q-epsilon/Features/
+      unzip <Filename.zip> -d Q-epsilon/Features/
            
 where <Filename.zip> are the different files that we downloaded (ATOM.zip,ATOMfreq.zip,GDT_TS.zip,GRAPHNEIGH.zip,RES_NEIGH.zip)         
 
