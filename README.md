@@ -108,11 +108,20 @@ For extracting transformer feature for each residue of all  decoys
  
       python transformer_feat.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
       
+      
+For extracting the LDDT of all  decoys run the following script in each of the CASP directory
+
+      python calc_lddt.py --table-loc *.xz --output-location Q-epsilon/Features/ --group-info output.csv
+      
 **Parameters**
 
 --decoy-location   Location of the unzipped CASP folders
            
 --output-location  Location for storing the output features having the required sub-directories
+
+--table-loc        Location of the table.pkl.xz of each CASP
+
+--group-info       Location of group info present in output.csv 
 
 Then we need to create Train,Val and Test Set. Since we are training with both GDTTS and LDDT scores we have two sets of train, validation and test datasets
 
