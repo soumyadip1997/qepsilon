@@ -280,6 +280,7 @@ After training for a total of 60 epochs or downloading the model run the followi
       python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy/Test_CASP14_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13_GDTTS.csv/result_14_GDTTS.csv
 
 **LDDT**
+
       python Test.py --workers 12 --model-path best_model_LDDT.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_LDDT.npy/Test_CASP14_LDDT.npy  --gdtts Features/LDDT/LDDT_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13_LDDT.csv/result_14_LDDT.csv
 This saves all the results to the file specified by --result-file argument which in this case is either result_13.csv or result_14.csv. 
 
