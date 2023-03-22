@@ -201,7 +201,9 @@ valid_targets_CASP13.npy -  CASP13 targets
 valid_targets_CASP14.npy -  CASP14 targets
 
 
-# Training 
+# Training
+
+**GDTTS**
 
 Training is done in two steps: 
 
@@ -212,6 +214,15 @@ First the GCN runs with L1-Loss for 50 epochs and the best model is saved as bes
 Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epochs using the best model obtained from the L1-Loss i.e. best_model_l1.ckpt. The final model is saved as best_model.ckpt
 
       python Train.py --batch-size 70 --epochs 10 --workers 12 --seed 42 --devices 1 --nodes 1 --loss-type 1 --train-set Train.npy --val-set Val.npy --test-set Test_CASP13_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --load-model best_model_l1.ckpt --save-model best_model.ckpt
+      
+      
+**LDDT**
+
+For training with LDDT scores we use the pretrained GDTTS model.
+
+            python3 Train_LDDT.py --workers 12 --batch-size 70 --save-model best_model_lddt.ckpt --load-model best_model.ckpt  --devices 1 --lr 0.001 --epochs 50 --loss-type=1 --train-set Train_LDDT.npy --val-set Val_LDDT.npy --gdtts Features/LDDT/LDDT_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_
+
+
       
 ### Parameters
 --batch-size  - Batch size 
@@ -252,16 +263,24 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 
 --save-model - Location for saving a model
 
+
+
+
+
 # Testing 
 
 We use the best model saved by the $\epsilon$ modified L1-Loss network for testing.
 
-To save training time, the best model can be downloaded from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1
+To save training time, the best GDTTS model can be downloaded from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1 and the best LDDT model can be downloaded from 
 
 After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
-      python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy/Test_CASP14_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13.csv/result_14.csv
+**GDTTS**
 
+      python Test.py --workers 12 --model-path best_model.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_new.npy/Test_CASP14_new.npy  --gdtts Features/GDT_TS/gdtts_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13_GDTTS.csv/result_14_GDTTS.csv
+
+**LDDT**
+      python Test.py --workers 12 --model-path best_model_LDDT.ckpt --devices 1 --nodes 1 --test-set Test_CASP13_LDDT.npy/Test_CASP14_LDDT.npy  --gdtts Features/LDDT/LDDT_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_ --result-file result_13_LDDT.csv/result_14_LDDT.csv
 This saves all the results to the file specified by --result-file argument which in this case is either result_13.csv or result_14.csv. 
 
 
@@ -298,7 +317,13 @@ This saves all the results to the file specified by --result-file argument which
 
 For calculating the pearson and spearman correlation scores and plotting data run the following -
 
-      python plot_score.py --result-file result_13.csv/result_14.csv --targets valid_targets_CASP14.csv/valid_targets_CASP13.csv --plot-name CASP13.pdf/CASP14.pdf
+**GDTTS**
+
+      python plot_score.py --result-file result_13_GDTTS.csv/result_14_GDTTS.csv --targets valid_targets_CASP14.csv/valid_targets_CASP13.csv --plot-name CASP13.pdf/CASP14.pdf
+      
+**LDDT**      
+      
+      python plot_score.py --result-file result_13_LDDT.csv/result_14_LDDT.csv --targets Targets_V13.csv/Targets_V14.csv --plot-name CASP13.pdf/CASP14.pdf
       
 ### Parameters
 
