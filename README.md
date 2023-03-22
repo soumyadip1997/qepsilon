@@ -123,7 +123,7 @@ For extracting the LDDT of all  decoys run the following script in each of the C
 
 --group-info       Location of group info present in output.csv 
 
-Then we need to create Train,Val and Test Set. Since we are training with both GDTTS and LDDT scores we have two sets of train, validation and test datasets
+Then we need to create Train,Val and Test Set. Since we are training with both GDTTS and LDDT scores we have two sets of train, validation and test datasets.
 
 **GDTTS**
 
