@@ -116,6 +116,8 @@ For extracting transformer feature for each residue of all  decoys
 
 Then we need to create Train,Val and Test Set
 
+**GDTTS**
+
 Run the scripts inside Train_Val_Test directory.
       
 To create the Train and Validation set first run 
@@ -156,6 +158,9 @@ This will create the test sets for CASP13 and 14 respectively.
 
 --decoy-location - Location of the CASP Folders
 
+**LDDT**
+
+Since for LDDT we are using the same targets as DeepUMQA(https://academic.oup.com/bioinformatics/article/38/7/1895/6520805) 
 
 # Alternative: Downloading the preprocessed data and using the already prepared Train-Val-Test File
 
