@@ -237,7 +237,7 @@ Then the same GCN runs with our $\epsilon$ modified L1-Loss for another 10 epoch
 
 For training with LDDT scores we use the pretrained GDTTS model.
 
-      python3 Train_LDDT.py --workers 12 --batch-size 70 --save-model best_model_lddt.ckpt --load-model best_model.ckpt  --devices 1 --lr 0.001 --epochs 50 --loss-type=1 --train-set Train_LDDT.npy --val-set Val_LDDT.npy --gdtts Features/LDDT/LDDT_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_
+      python Train_LDDT.py --workers 12 --batch-size 70 --save-model best_model_lddt.ckpt --load-model best_model.ckpt  --devices 1 --lr 0.001 --epochs 50 --loss-type=1 --train-set Train_LDDT.npy --val-set Val_LDDT.npy --gdtts Features/LDDT/LDDT_ --atom-one-hot Features/ATOM/atom_one_hot_ --same-res-atom-neigh Features/GRAPHNEIGH/Same_Res_Index_  --diff-res-atom-neigh Features/GRAPHNEIGH/Diff_Res_Index_  --res-neigh Features/GRAPHNEIGH/Residue_Neigh_ --path-res-trans Features/TRANS/Trans_ --res-no Features/Atomfreq/atomfreq_
 
 
       
