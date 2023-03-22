@@ -169,7 +169,7 @@ This will create the test sets for CASP13 and 14 respectively.
 
 **LDDT**
 
-Since for LDDT we are using the same targets as DeepUMQA(https://academic.oup.com/bioinformatics/article/38/7/1895/6520805) we are going to use Train_LDDT.npy, Val_LDDT.npy  as the train and validation sets  and Test_CASP13_LDDT.npy and Test_CASP14_LDDT.npy as the test sets.
+Since for LDDT we are using the same target set as DeepUMQA(https://academic.oup.com/bioinformatics/article/38/7/1895/6520805) we are going to use Train_LDDT.npy, Val_LDDT.npy  as the train and validation sets  and Test_CASP13_LDDT.npy and Test_CASP14_LDDT.npy as the test sets.
 
 # Alternative: Downloading the preprocessed data and using the already prepared Train-Val-Test File
 
