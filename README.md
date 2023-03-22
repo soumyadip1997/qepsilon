@@ -114,7 +114,7 @@ For extracting transformer feature for each residue of all  decoys
            
 --output-location  Location for storing the output features having the required sub-directories
 
-Then we need to create Train,Val and Test Set
+Then we need to create Train,Val and Test Set. Since we are training with both GDTTS and LDDT scores we have two sets of train, validation and test datasets
 
 **GDTTS**
 
@@ -160,7 +160,7 @@ This will create the test sets for CASP13 and 14 respectively.
 
 **LDDT**
 
-Since for LDDT we are using the same targets as DeepUMQA(https://academic.oup.com/bioinformatics/article/38/7/1895/6520805) we are going to use Train_LDDT.npy,Val_LDDT.npy  as the training and validation set  and Test_CASP13_LDDT.npy and Test_CASP14_LDDT.npy as the test set.
+Since for LDDT we are using the same targets as DeepUMQA(https://academic.oup.com/bioinformatics/article/38/7/1895/6520805) we are going to use Train_LDDT.npy, Val_LDDT.npy  as the train and validation sets  and Test_CASP13_LDDT.npy and Test_CASP14_LDDT.npy as the test sets.
 
 # Alternative: Downloading the preprocessed data and using the already prepared Train-Val-Test File
 
@@ -209,6 +209,7 @@ valid_targets_CASP14.npy -  CASP14 targets
 
 
 # Training
+
 
 **GDTTS**
 
