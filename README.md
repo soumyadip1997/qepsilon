@@ -271,7 +271,7 @@ For training with LDDT scores we use the pretrained GDTTS model.
 
 We use the best model saved by the $\epsilon$ modified L1-Loss network for testing.
 
-To save training time, the best GDTTS model can be downloaded from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1 and the best LDDT model can be downloaded from 
+To save training time, the best GDTTS model can be downloaded from  https://zenodo.org/record/7697220/files/best_model.ckpt?download=1 and the best LDDT model can be downloaded from https://zenodo.org/record/7760820/files/best_model_LDDT.ckpt?download=1
 
 After training for a total of 60 epochs or downloading the model run the following for testing on CASP13/CASP14-
 
