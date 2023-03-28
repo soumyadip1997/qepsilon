@@ -341,12 +341,13 @@ For calculating the pearson and spearman correlation scores and plotting data ru
       
 **LDDT**      
       
-      python plot_score.py --result-file result_13_LDDT.csv/result_14_LDDT.csv --targets targets_V13.csv/targets_V14.csv --plot-name CASP13.pdf/CASP14.pdf
+      python calc_score.py --result-file Result_CASP14_LDDT.csv/Result_CASP13_LDDT.csv --decoys CASP14_LDDT.csv/CASP13_LDDT.csv
       
 ### Parameters
 
 --result-file - Location to the file produced by Test.py
 
+--decoys - Location to the file that contains the decoy ids of CASP13 and CASP14 (CASP14_LDDT.csv/CASP13_LDDT.csv)
 
 --targets - Location to the file that has target information
 
