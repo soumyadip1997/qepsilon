@@ -92,13 +92,10 @@ For extracting the gdtts of all  decoys
 
       python gdtscores.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-For extracting the same and different residue atom neighbours of all  decoys
+For extracting the same and different residue atom neighbours and all the residue neighbours of all  decoys
 
-      python neigh_atom.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
+      python neigh.py --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
-For extracting all the residue neighbours of all decoys
-
-      python neigh_res.py  --decoy-location Q-epsilon/ --output-location Q-epsilon/Features/
 
 For extracting the  number of atoms present inside each residue of all decoys
 
