@@ -358,3 +358,8 @@ prep_CASP15_decoy.py  -  Separates the multimeric complexes of CASP15 into their
 
 Test_CASP15.npy - Test set of CASP15 decoys
 
+
+
+
+Test_alphafold_new.npy   -   Test set consisting of decoys produced by Alphafold2 when run on the Fasta Files of CASP15 targets. 
+
