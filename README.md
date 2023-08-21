@@ -190,7 +190,7 @@ number of atoms inside each residue - https://zenodo.org/record/8271199/files/At
 gdtts - https://zenodo.org/record/8271199/files/GDT_TS.zip?download=1
 
 
-LDDT- https://zenodo.org/record/7760929/files/LDDT.zip?download=1
+LDDT- https://zenodo.org/record/8271212/files/LDDT.zip?download=1
 
 Then unzip the files and store them inside Features Folder
 
