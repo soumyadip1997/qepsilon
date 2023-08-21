@@ -64,6 +64,11 @@ CASP13 - https://zenodo.org/record/7697275/files/CASP13.zip?download=1
 
 CASP14 - https://zenodo.org/record/7697275/files/CASP14.zip?download=1
 
+
+CASP15 -  https://zenodo.org/record/8271136/files/CASP15.zip?download=1
+
+
+
 Then we unzip the folders using 
 
            unzip <CASP_FILE> -d Q-epsilon/
