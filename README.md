@@ -351,4 +351,7 @@ For calculating the pearson and spearman correlation scores and plotting data ru
 --plot-name - Location to save the plots
  
 
+# Other Files
+
+process_CASP15.py  -  Separates the multimeric complexes of CASP15 into their respective single sequence decoys wrt single sequence targets.
 
