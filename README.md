@@ -353,5 +353,5 @@ For calculating the pearson and spearman correlation scores and plotting data ru
 
 # Other Files
 
-process_CASP15.py  -  Separates the multimeric complexes of CASP15 into their respective single sequence decoys wrt single sequence targets.
+prep_CASP15_decoy.py  -  Separates the multimeric complexes of CASP15 into their respective single sequence decoys wrt single sequence targets.
 
