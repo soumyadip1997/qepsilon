@@ -356,7 +356,7 @@ For calculating the pearson and spearman correlation scores and plotting data ru
 prep_CASP15_decoy.py  -  Separates the multimeric complexes of CASP15 into their respective single sequence decoys wrt single sequence targets.
 
 
-Test_CASP15.npy - Test set of CASP15 decoys
+Test_CASP15_new.npy - Test set of CASP15 decoys
 
 
 
