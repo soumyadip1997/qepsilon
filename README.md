@@ -179,15 +179,15 @@ To save time all the above features can be downloaded from the links below-
 
 transformer feature for residue - https://colostate-my.sharepoint.com/:u:/g/personal/soumya16_colostate_edu/ESN_lob-izZKm86bIZ39HIQBNWybwmfvJHve-G1394B49Q?e=7oO7E3
 
-one hot encodings of atoms - https://zenodo.org/record/7694318/files/ATOM.zip?download=1
+one hot encodings of atoms - https://zenodo.org/record/8271199/files/ATOM.zip?download=1
 
 same and diferent residue atom neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
 
 residue neighbours - https://zenodo.org/record/7703112/files/NEIGH_RES.zip?download=1
 
-number of atoms inside each residue - https://zenodo.org/record/7694318/files/Atomfreq.zip?download=1
+number of atoms inside each residue - https://zenodo.org/record/8271199/files/Atomfreq.zip?download=1
 
-gdtts - https://zenodo.org/record/7694318/files/GDT_TS.zip?download=1
+gdtts - https://zenodo.org/record/8271199/files/GDT_TS.zip?download=1
 
 
 LDDT- https://zenodo.org/record/7760929/files/LDDT.zip?download=1
