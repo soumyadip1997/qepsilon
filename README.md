@@ -351,7 +351,7 @@ For calculating the pearson and spearman correlation scores and plotting data ru
 --plot-name - Location to save the plots
  
 
-# Other Files
+# Other Files And Additional Information
 
 prep_CASP15_decoy.py  -  Separates the multimeric complexes of CASP15 into their respective single sequence decoys wrt single sequence targets.
 
@@ -363,3 +363,4 @@ Test_CASP15_new.npy - Test set of CASP15 decoys
 
 Test_alphafold_new.npy   -   Test set consisting of decoys produced by Alphafold2 when run on the Fasta Files of CASP15 targets. 
 
+Local lDDT scores have been calculated using the command line tools of SWISS_MODEL( https://www.openstructure.org/docs/2.5/actions/#comparing-two-structures ).
