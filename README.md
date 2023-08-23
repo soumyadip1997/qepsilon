@@ -181,7 +181,7 @@ transformer feature for residue - https://colostate-my.sharepoint.com/:u:/g/pers
 
 one hot encodings of atoms - https://zenodo.org/record/8271199/files/ATOM.zip?download=1
 
-same and diferent residue atom neighbours - https://zenodo.org/record/7694318/files/GRAPHNEIGH.zip?download=1
+same and diferent residue atom neighbours - https://zenodo.org/record/8277479/files/GRAPHNEIGH.zip?download=1
 
 residue neighbours - https://zenodo.org/record/7703112/files/NEIGH_RES.zip?download=1
 
