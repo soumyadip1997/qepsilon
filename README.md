@@ -65,7 +65,6 @@ CASP13 - https://zenodo.org/record/7697275/files/CASP13.zip?download=1
 CASP14 - https://zenodo.org/record/7697275/files/CASP14.zip?download=1
 
 
-CASP15 -  https://zenodo.org/record/8271136/files/CASP15.zip?download=1
 
 
 
@@ -177,7 +176,7 @@ Since for LDDT we are using the same target set as DeepUMQA(https://academic.oup
 
 To save time all the above features can be downloaded from the links below-
 
-transformer feature for residue - https://colostate-my.sharepoint.com/:u:/g/personal/soumya16_colostate_edu/ESN_lob-izZKm86bIZ39HIQBNWybwmfvJHve-G1394B49Q?e=7oO7E3
+transformer feature for residue - https://colostate-my.sharepoint.com/:u:/r/personal/soumya16_colostate_edu/Documents/TRANS.zip?csf=1&web=1&e=zYacPF
 
 one hot encodings of atoms - https://zenodo.org/record/8271199/files/ATOM.zip?download=1
 
@@ -369,3 +368,6 @@ To get the alphafold generated decoys on a subset of  CASP15 fasta files - https
 Test_alphafold_new.npy   -   Test set consisting of decoys produced by Alphafold2 when run on the Fasta Files of CASP15 targets. 
 
 Local lDDT scores have been calculated using the command line tools of SWISS_MODEL( https://www.openstructure.org/docs/2.5/actions/#comparing-two-structures ).
+
+CASP15 -  https://zenodo.org/record/8271136/files/CASP15.zip?download=1
+
